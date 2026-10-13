@@ -3,8 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Строительный магазин «Олжа» — Косшы</title>
-<meta name="description" content="Строительные и ремонтные материалы в Косшы. ул. Кобыланды батыра, 81. Ежедневно 09:00–21:00.">
+<title>Строительный магазин «Олжа» в Косшы — стройматериалы, инструмент, прокат</title>
+<meta name="description" content="Строительный магазин «Олжа» в Косшы: еврокубы и ёмкости, металлы, сухие смеси, краски, сантехника, отопление, крепёж, гипсокартон, прокат инструментов. ул. Кобыланды батыра, 81. Ежедневно 09:00–21:00. Тел. +7 775 447 9913.">
+<meta name="keywords" content="строительный магазин Косшы, стройматериалы Косшы, Олжа, прокат инструментов Косшы, еврокубы, металлы, сухие смеси, сантехника, гипсокартон, краски и лаки, крепежные материалы, отопление">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://olzhastroymarket.kz/">
+<meta name="theme-color" content="#141414">
+<meta name="format-detection" content="telephone=yes">
+
+<!-- Регион (помогает локальному поиску) -->
+<meta name="geo.region" content="KZ-AKM">
+<meta name="geo.placename" content="Косшы">
+
+<!-- Подтверждение прав на сайт. Раскомментируйте и вставьте свои коды из кабинетов:
+     Google Search Console и Яндекс Вебмастер -->
+<!-- <meta name="google-site-verification" content="ВАШ_КОД_GOOGLE"> -->
+<!-- <meta name="yandex-verification" content="ВАШ_КОД_ЯНДЕКС"> -->
+
+<!-- Как сайт выглядит при отправке в WhatsApp, Telegram, соцсетях.
+     Положите картинку 1200×630 в images/og.jpg -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Строительный магазин «Олжа»">
+<meta property="og:title" content="Строительный магазин «Олжа» в Косшы">
+<meta property="og:description" content="Стройматериалы, инструмент, прокат, всё для отопления и ремонта. ул. Кобыланды батыра, 81. Ежедневно 09:00–21:00.">
+<meta property="og:url" content="https://olzhastroymarket.kz/">
+<meta property="og:image" content="https://olzhastroymarket.kz/images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Строительный магазин «Олжа» в Косшы">
+<meta name="twitter:description" content="Стройматериалы, инструмент, прокат, всё для отопления и ремонта.">
+<meta name="twitter:image" content="https://olzhastroymarket.kz/images/og.jpg">
+
+<!-- Иконка вкладки браузера -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141414'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23ffc400'%3EО%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
@@ -238,23 +270,33 @@
   .card {
     position: relative; overflow: hidden;
     background: #272727; color: #fff;
-    border-radius: 22px;
-    padding: 34px 22px 22px;
-    min-height: 170px;
-    display: flex; flex-direction: column; justify-content: space-between; gap: 20px;
+    border-radius: 20px;
+    display: flex; flex-direction: column;
     text-decoration: none;
     transition: transform .25s, background .25s, color .25s;
   }
-  .card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 9px; background: var(--hazard); }
-  .card h3 { font: 600 21px/1.2 var(--head); text-transform: uppercase; letter-spacing: .02em; }
-  .card i { align-self: flex-end; width: 34px; height: 34px; border-radius: 50%; background: var(--yellow); position: relative; transition: background .25s; }
+  .card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--hazard); z-index: 2; }
+  /* Место под картинку. Хотите выше или ниже — поменяйте aspect-ratio */
+  .thumb {
+    position: relative; aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #3b3b3b, #1e1e1e);
+    display: grid; place-items: center;
+    color: rgba(255,255,255,.4);
+    font-size: 11px; font-weight: 600; text-align: center; padding: 10px;
+    overflow: hidden;
+  }
+  .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+  .card:hover .thumb img { transform: scale(1.07); }
+  .card-body { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 14px 16px 16px; flex: 1; }
+  .card h3 { font: 600 17px/1.2 var(--head); text-transform: uppercase; letter-spacing: .02em; }
+  .card i { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--yellow); position: relative; transition: background .25s; }
   .card i::after {
-    content: ""; position: absolute; left: 11px; top: 12px;
-    width: 8px; height: 8px;
+    content: ""; position: absolute; left: 9px; top: 11px;
+    width: 7px; height: 7px;
     border-top: 2px solid var(--ink); border-right: 2px solid var(--ink);
     transform: rotate(45deg);
   }
-  .card:hover { transform: translateY(-6px); background: var(--yellow); color: var(--ink); }
+  .card:hover { transform: translateY(-5px); background: var(--yellow); color: var(--ink); }
   .card:hover i { background: var(--ink); }
   .card:hover i::after { border-color: var(--yellow); }
 
@@ -412,8 +454,11 @@
     .review { flex-basis: 88%; }
   }
   @media (max-width: 520px) {
-    .cards { grid-template-columns: 1fr; }
-    .card { min-height: 130px; }
+    .cards { gap: 10px; }
+    .card h3 { font-size: 14px; }
+    .card-body { padding: 11px 10px 13px 12px; }
+    .card i { width: 24px; height: 24px; }
+    .card i::after { left: 7px; top: 8px; width: 6px; height: 6px; }
     .photo-frame::before { inset: 12px -10px -12px 10px; }
     footer a { margin: 0 18px 0 0; }
   }
@@ -422,6 +467,93 @@
     .reveal { opacity: 1; transform: none; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HardwareStore",
+  "@id": "https://olzhastroymarket.kz/#store",
+  "name": "Строительный магазин «Олжа»",
+  "alternateName": "Олжастроймаркет",
+  "description": "Строительные и ремонтные материалы в Косшы: еврокубы и ёмкости, металлы, сухие смеси, краски и лаки, сантехника, отопление, крепёж, гипсокартон, прокат инструментов.",
+  "url": "https://olzhastroymarket.kz/",
+  "telephone": "+77754479913",
+  "image": "https://olzhastroymarket.kz/images/og.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Кобыланды батыра, 81",
+    "addressLocality": "Косшы",
+    "addressCountry": "KZ"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "21:00"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Ассортимент",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Еврокубы и разные емкости"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Прокат инструментов"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Металлы"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Клеи, герметики и монтажная пена"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Автоакссесуары"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Сухие смеси"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Инструменты"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Сантехника"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Все для отопительной системы"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Краски и лаки"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Крепежные материалы"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Гипсокартон и комплектующие"
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
 
@@ -522,18 +654,18 @@
         <p class="lead">Двенадцать направлений для стройки, ремонта и отопления. Не нашли нужное — напишите, подскажем.</p>
       </div>
       <div class="cards">
-        <a class="card reveal" href="https://olzhastroymarket.kz/eurocubes.html"><h3>Еврокубы и разные емкости</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/arenda.html"><h3>Прокат инструментов</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/metal.html"><h3>Металлы</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Клеи, герметики и монтажная пена</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Автоакссесуары</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Сухие смеси</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Инструменты</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Сантехника</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Все для отопительной системы</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Краски и лаки</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Крепежные материалы</h3><i></i></a>
-        <a class="card reveal" href="https://olzhastroymarket.kz/#"><h3>Гипсокартон и комплектующие</h3><i></i></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/eurocubes.html"><span class="thumb"><img src="images/eurocubes.png" alt="Еврокубы и разные емкости" loading="lazy" onerror="this.remove()"><span>Фото: images/eurocubes.jpg</span></span><span class="card-body"><h3>Еврокубы и разные емкости</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/arenda.html"><span class="thumb"><img src="images/arenda.png" alt="Прокат инструментов" loading="lazy" onerror="this.remove()"><span>Фото: images/arenda.jpg</span></span><span class="card-body"><h3>Прокат инструментов</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/metal.html"><span class="thumb"><img src="images/metal.jpg" alt="Металлы" loading="lazy" onerror="this.remove()"><span>Фото: images/metal.jpg</span></span><span class="card-body"><h3>Металлы</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/#"><span class="thumb"><img src="images/kley.png" alt="Клеи, герметики и монтажная пена" loading="lazy" onerror="this.remove()"><span>Фото: images/kley.jpg</span></span><span class="card-body"><h3>Клеи, герметики и монтажная пена</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/#"><span class="thumb"><img src="images/avto.png" alt="Автоакссесуары" loading="lazy" onerror="this.remove()"><span>Фото: images/avto.jpg</span></span><span class="card-body"><h3>Автоакссесуары</h3><i></i></span></a>
+        <a class="card reveal" href="smesi.html"><span class="thumb"><img src="images/smesi.png" alt="Сухие смеси" loading="lazy" onerror="this.remove()"><span>Фото: images/smesi.jpg</span></span><span class="card-body"><h3>Сухие смеси</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/#"><span class="thumb"><img src="images/instrumenty.png" alt="Инструменты" loading="lazy" onerror="this.remove()"><span>Фото: images/instrumenty.jpg</span></span><span class="card-body"><h3>Инструменты</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/#"><span class="thumb"><img src="images/santehnika.png" alt="Сантехника" loading="lazy" onerror="this.remove()"><span>Фото: images/santehnika.jpg</span></span><span class="card-body"><h3>Сантехника</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/#"><span class="thumb"><img src="images/otoplenie.png" alt="Все для отопительной системы" loading="lazy" onerror="this.remove()"><span>Фото: images/otoplenie.jpg</span></span><span class="card-body"><h3>Все для отопительной системы</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/#"><span class="thumb"><img src="images/kraski.png" alt="Краски и лаки" loading="lazy" onerror="this.remove()"><span>Фото: images/kraski.jpg</span></span><span class="card-body"><h3>Краски и лаки</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/#"><span class="thumb"><img src="images/krepezh.png" alt="Крепежные материалы" loading="lazy" onerror="this.remove()"><span>Фото: images/krepezh.jpg</span></span><span class="card-body"><h3>Крепежные материалы</h3><i></i></span></a>
+        <a class="card reveal" href="https://olzhastroymarket.kz/#"><span class="thumb"><img src="images/gipsokarton.png" alt="Гипсокартон и комплектующие" loading="lazy" onerror="this.remove()"><span>Фото: images/gipsokarton.jpg</span></span><span class="card-body"><h3>Гипсокартон и комплектующие</h3><i></i></span></a>
       </div>
     </div>
   </section>
@@ -546,10 +678,10 @@
           <div class="slides">
             <!-- Положите фото рядом с этим файлом: store-1.jpg ... store-4.jpg.
                  Чтобы добавить ещё одно фото, скопируйте любой блок .slide ниже. -->
-            <div class="slide active"><img src="магазин.jpg" alt="Магазин Олжа, фото 1" onerror="this.remove()"></div>
-            <div class="slide"><img src="магазин3.jpg" alt="Магазин Олжа, фото 2" onerror="this.remove()"></div>
-            <div class="slide"><img src="магазин1.jpg" alt="Магазин Олжа, фото 3" onerror="this.remove()"></div>
-            <div class="slide"><img src="магазин2.jpg" alt="Магазин Олжа, фото 4" onerror="this.remove()"></div>
+            <div class="slide active"><img src="store-1.jpg" alt="Магазин Олжа, фото 1" onerror="this.remove()"><span>Фото магазина 1<br>(файл store-1.jpg)</span></div>
+            <div class="slide"><img src="store-2.jpg" alt="Магазин Олжа, фото 2" onerror="this.remove()"><span>Фото магазина 2<br>(файл store-2.jpg)</span></div>
+            <div class="slide"><img src="store-3.jpg" alt="Магазин Олжа, фото 3" onerror="this.remove()"><span>Фото магазина 3<br>(файл store-3.jpg)</span></div>
+            <div class="slide"><img src="store-4.jpg" alt="Магазин Олжа, фото 4" onerror="this.remove()"><span>Фото магазина 4<br>(файл store-4.jpg)</span></div>
           </div>
           <div class="g-controls">
             <button class="circle-btn prev" type="button" aria-label="Предыдущее фото"></button>
