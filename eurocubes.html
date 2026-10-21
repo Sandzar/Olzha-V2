@@ -23,20 +23,24 @@
 <meta property="og:url" content="https://olzhastroymarket.kz/eurocubes.html">
 <meta property="og:image" content="https://olzhastroymarket.kz/images/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141414'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23ffc400'%3EО%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141414'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23f26a1b'%3EО%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --yellow: #ffc400;
+    --accent: #f26a1b;
+    --ruler:
+      repeating-linear-gradient(90deg, rgba(20,20,20,.9) 0 2px, transparent 2px 10px) bottom / 100% 45% no-repeat,
+      repeating-linear-gradient(90deg, rgba(20,20,20,.9) 0 2px, transparent 2px 50px) bottom / 100% 80% no-repeat,
+      #e9cf9b;
     --ink: #141414;
     --concrete-1: #ecebe7;
     --concrete-2: #cdcbc4;
     --paper: #f7f6f2;
     --head: "Oswald", "Arial Narrow", sans-serif;
     --body: "Montserrat", system-ui, sans-serif;
-    --hazard: repeating-linear-gradient(-45deg, var(--yellow) 0 14px, var(--ink) 14px 28px);
+    --hazard: repeating-linear-gradient(-45deg, var(--accent) 0 14px, var(--ink) 14px 28px);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 110px; }
@@ -71,7 +75,7 @@
   .logo {
     height: 36px; padding: 0 18px;
     display: grid; place-items: center;
-    background: var(--yellow); color: var(--ink);
+    background: var(--accent); color: var(--ink);
     font: 700 18px var(--head);
     letter-spacing: .08em;
     text-decoration: none;
@@ -93,7 +97,7 @@
   }
   .nav-links > li > a:hover, .nav-links .dd-toggle:hover,
   .nav-links a:focus-visible, .nav-links .dd-toggle:focus-visible {
-    opacity: 1; color: var(--yellow);
+    opacity: 1; color: var(--accent);
     text-decoration: underline; text-underline-offset: 6px;
   }
   .dd-toggle::after {
@@ -121,13 +125,13 @@
   .dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -34px; height: 34px; }
   .has-dd.open .dd-menu { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
   .dd-menu a { display: block; padding: 10px 14px; border-radius: 12px; font-size: 13px; opacity: 1; white-space: normal; }
-  .dd-menu a:hover { background: var(--yellow); color: var(--ink); text-decoration: none; }
+  .dd-menu a:hover { background: var(--accent); color: var(--ink); text-decoration: none; }
 
   .nav-actions { display: flex; align-items: center; gap: 10px; }
   .phone-btn {
     border: 0; cursor: pointer;
     font: 700 12px var(--body);
-    color: var(--ink); background: var(--yellow);
+    color: var(--ink); background: var(--accent);
     padding: 10px 18px; min-width: 142px;
     border-radius: 999px;
     transition: transform .15s;
@@ -165,7 +169,7 @@
   .m-sub { list-style: none; max-height: 0; overflow: hidden; transition: max-height .4s; }
   .m-sub li { margin-top: 14px; }
   .m-sub li:first-child { margin-top: 18px; }
-  .m-sub a { font-size: 13px; font-weight: 500; color: var(--yellow); }
+  .m-sub a { font-size: 13px; font-weight: 500; color: var(--accent); }
   .has-dd.open > .m-sub { max-height: 640px; }
 
   /* =========================================================
@@ -187,7 +191,7 @@
   .band-dark  { background: radial-gradient(circle at 88% 0%, rgba(255,196,0,.16), transparent 42%), #171717; color: #fff; }
   .band-sand  { background: radial-gradient(circle at 10% 100%, rgba(255,255,255,.7), transparent 45%), #f6e7b4; }
   .band-steel { background: radial-gradient(circle at 90% 0%, rgba(255,255,255,.12), transparent 45%), #2c3944; color: #fff; }
-  .band-yellow{ background: radial-gradient(circle at 0% 0%, rgba(255,255,255,.35), transparent 40%), var(--yellow); }
+  .band-accent{ background: radial-gradient(circle at 0% 0%, rgba(255,255,255,.35), transparent 40%), var(--accent); }
   .band-black { background: #0e0e0e; color: #fff; }
 
   .btn {
@@ -196,7 +200,7 @@
     transition: transform .15s, background .2s;
   }
   .btn:hover { transform: translateY(-2px); }
-  .btn-yellow { background: var(--yellow); color: var(--ink); }
+  .btn-accent { background: var(--accent); color: var(--ink); }
   .btn-dark { background: var(--ink); color: #fff; }
   .btn-line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
 
@@ -216,7 +220,7 @@
     text-transform: uppercase;
     letter-spacing: .005em;
   }
-  .hero h1 mark { background: var(--yellow); color: var(--ink); padding: 0 .12em; }
+  .hero h1 mark { background: var(--accent); color: var(--ink); padding: 0 .12em; }
   .hero .lead { margin-top: 26px; font-size: 19px; }
   .hero-cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
 
@@ -233,7 +237,7 @@
   .status[data-open="true"]::before { background: #3ddc84; }
   .status[data-open="false"]::before { background: #ff5a4d; }
   .sign small { display: block; margin-top: 26px; font-size: 12px; opacity: .6; font-weight: 600; }
-  .sign .big { font: 700 40px/1.1 var(--head); color: var(--yellow); margin-top: 4px; }
+  .sign .big { font: 700 40px/1.1 var(--head); color: var(--accent); margin-top: 4px; }
   .sign p { margin-top: 6px; font-size: 15px; line-height: 1.5; }
 
   .scroll-cue {
@@ -276,16 +280,16 @@
   .card:hover .thumb img { transform: scale(1.07); }
   .card-body { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 14px 16px 16px; flex: 1; }
   .card h3 { font: 600 17px/1.2 var(--head); text-transform: uppercase; letter-spacing: .02em; }
-  .card i { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--yellow); position: relative; transition: background .25s; }
+  .card i { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); position: relative; transition: background .25s; }
   .card i::after {
     content: ""; position: absolute; left: 9px; top: 11px;
     width: 7px; height: 7px;
     border-top: 2px solid var(--ink); border-right: 2px solid var(--ink);
     transform: rotate(45deg);
   }
-  .card:hover { transform: translateY(-5px); background: var(--yellow); color: var(--ink); }
+  .card:hover { transform: translateY(-5px); background: var(--accent); color: var(--ink); }
   .card:hover i { background: var(--ink); }
-  .card:hover i::after { border-color: var(--yellow); }
+  .card:hover i::after { border-color: var(--accent); }
 
   /* =========================================================
      3. О МАГАЗИНЕ (песочная секция) + слайдер фото
@@ -321,7 +325,7 @@
   .circle-btn {
     width: 44px; height: 44px; border-radius: 50%;
     border: 0; cursor: pointer;
-    background: var(--yellow); position: relative;
+    background: var(--accent); position: relative;
     transition: transform .15s, background .2s;
   }
   .circle-btn:hover { transform: scale(1.08); }
@@ -335,7 +339,7 @@
   .circle-btn.prev::after { transform: translate(-35%, -50%) rotate(-135deg); }
   .dots { display: flex; gap: 8px; padding: 9px 12px; background: rgba(20,20,20,.55); border-radius: 999px; }
   .dots button { width: 9px; height: 9px; border-radius: 50%; border: 0; background: rgba(255,255,255,.5); cursor: pointer; padding: 0; transition: background .2s, width .25s; }
-  .dots button.active { background: var(--yellow); width: 24px; border-radius: 6px; }
+  .dots button.active { background: var(--accent); width: 24px; border-radius: 6px; }
 
   .facts { margin-top: 26px; list-style: none; border-top: 2px solid var(--ink); }
   .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(20,20,20,.2); font-size: 15px; }
@@ -346,7 +350,7 @@
      4. ВРЕМЯ РАБОТЫ / КОНТАКТЫ / АДРЕС (стальная секция)
   ========================================================= */
   .info { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .panel { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 32px 28px; border-top: 10px solid var(--yellow); }
+  .panel { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 32px 28px; border-top: 10px solid var(--accent); }
   .panel h3 { font: 700 26px var(--head); text-transform: uppercase; margin-bottom: 18px; }
   .panel p { font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
   .panel .time { font: 700 44px/1 var(--head); margin-bottom: 10px; }
@@ -358,7 +362,7 @@
     font-size: 14px; font-weight: 600;
     transition: background .2s, color .2s, transform .15s;
   }
-  .links a:hover { background: var(--yellow); color: var(--ink); transform: translateX(4px); }
+  .links a:hover { background: var(--accent); color: var(--ink); transform: translateX(4px); }
 
   /* =========================================================
      5. ОТЗЫВЫ (жёлтая секция) — карусель
@@ -366,7 +370,7 @@
   .rev-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
   .rev-nav { display: flex; gap: 10px; }
   .rev-nav .circle-btn { background: var(--ink); }
-  .rev-nav .circle-btn::after { border-color: var(--yellow); }
+  .rev-nav .circle-btn::after { border-color: var(--accent); }
 
   .reviews {
     margin-top: 40px;
@@ -386,21 +390,21 @@
     min-height: 280px;
   }
   .rev-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-  .stars { color: var(--yellow); letter-spacing: 3px; font-size: 17px; }
+  .stars { color: var(--accent); letter-spacing: 3px; font-size: 17px; }
   .source {
     font-size: 11px; font-weight: 700;
     padding: 6px 12px; border-radius: 999px;
     background: rgba(255,255,255,.12); color: #fff;
     text-decoration: none; white-space: nowrap;
   }
-  a.source:hover { background: var(--yellow); color: var(--ink); }
+  a.source:hover { background: var(--accent); color: var(--ink); }
   .review p { font-size: 15px; line-height: 1.65; opacity: .92; }
   .review b { margin-top: auto; font-size: 14px; }
 
   /* =========================================================
      6. ФИНАЛ (чёрная секция)
   ========================================================= */
-  .cta-end { background: var(--yellow); color: var(--ink); border-radius: 40px; overflow: hidden; text-align: center; }
+  .cta-end { background: var(--accent); color: var(--ink); border-radius: 40px; overflow: hidden; text-align: center; }
   .cta-end .tape { border-radius: 0; height: 22px; }
   .cta-end-body { padding: 56px 32px 60px; }
   .cta-end h2 { max-width: 14ch; margin: 0 auto 14px; }
@@ -413,7 +417,7 @@
   }
   footer span { opacity: .7; }
   footer a { color: inherit; text-decoration: none; margin-left: 18px; opacity: .8; }
-  footer a:hover { opacity: 1; color: var(--yellow); }
+  footer a:hover { opacity: 1; color: var(--accent); }
 
   /* =========================================================
      АДАПТИВ
@@ -468,7 +472,7 @@
     font: 600 15px var(--body);
     outline: none;
   }
-  .search:focus { border-color: var(--yellow); }
+  .search:focus { border-color: var(--accent); }
   .note { font-size: 13px; opacity: .65; max-width: 52ch; line-height: 1.5; }
 
   .products { margin-top: 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -483,21 +487,21 @@
   .p-body { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
   .product h3 { font: 600 18px/1.2 var(--head); text-transform: uppercase; letter-spacing: .02em; }
   .spec { font-size: 12px; opacity: .65; font-weight: 600; }
-  .price { font: 700 26px/1.1 var(--head); color: var(--yellow); margin: 4px 0 10px; }
+  .price { font: 700 26px/1.1 var(--head); color: var(--accent); margin: 4px 0 10px; }
   .wa-btn {
     margin-top: auto; text-align: center;
     padding: 13px 14px; border-radius: 999px;
-    background: var(--yellow); color: var(--ink);
+    background: var(--accent); color: var(--ink);
     font: 700 13px/1.25 var(--body); text-decoration: none;
     transition: transform .15s, background .2s;
   }
   .wa-btn:hover { transform: translateY(-2px); background: #fff; }
   .empty { margin-top: 32px; font-size: 16px; }
-  .empty a { color: var(--yellow); font-weight: 700; }
+  .empty a { color: var(--accent); font-weight: 700; }
 
   .steps { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
   .step { background: var(--ink); color: #fff; border-radius: 28px; padding: 30px 28px; counter-increment: s; }
-  .step::before { content: counter(s); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--yellow); color: var(--ink); font: 700 24px var(--head); margin-bottom: 18px; }
+  .step::before { content: counter(s); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--ink); font: 700 24px var(--head); margin-bottom: 18px; }
   .step h3 { font: 600 22px var(--head); text-transform: uppercase; margin-bottom: 8px; }
   .step p { font-size: 15px; line-height: 1.6; opacity: .85; }
 
@@ -505,7 +509,7 @@
   .faq-item { background: rgba(255,255,255,.08); border-radius: 22px; padding: 0 26px; }
   .faq-item summary { cursor: pointer; list-style: none; padding: 22px 0; font: 600 20px/1.3 var(--head); text-transform: uppercase; display: flex; justify-content: space-between; gap: 16px; }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: "+"; color: var(--yellow); font-size: 28px; line-height: 1; transition: transform .25s; }
+  .faq-item summary::after { content: "+"; color: var(--accent); font-size: 28px; line-height: 1; transition: transform .25s; }
   .faq-item.is-open summary::after { transform: rotate(45deg); }
   .faq-item p { padding: 0 0 22px; font-size: 15px; line-height: 1.7; opacity: .85; }
 
@@ -533,17 +537,17 @@
     transition: background .2s, color .2s, transform .15s;
   }
   .chip:hover { transform: translateY(-2px); background: rgba(255,255,255,.2); }
-  .chip.active { background: var(--yellow); color: var(--ink); }
+  .chip.active { background: var(--accent); color: var(--ink); }
   .vol {
     position: absolute; top: 16px; left: 14px; z-index: 1;
-    background: var(--yellow); color: var(--ink);
+    background: var(--accent); color: var(--ink);
     font: 700 22px/1 var(--head);
     padding: 6px 14px; border-radius: 999px;
   }
   .spec { margin-bottom: 12px; }
   .delivery {
     margin-top: 32px;
-    background: var(--yellow); color: var(--ink);
+    background: var(--accent); color: var(--ink);
     border-radius: 28px; overflow: hidden;
     display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
     padding: 0 0 0 0;
@@ -557,6 +561,52 @@
     .delivery-in { padding: 6px 22px 26px; }
     .delivery h3 { font-size: 24px; }
   }
+
+  /* =========================================================
+     СТРОИТЕЛЬНАЯ ТЕМА: бетон, чертёж, кирпич, оранжевый
+     (убраны жёлто-чёрные полосы, похожие на дорожные знаки)
+  ========================================================= */
+  body {
+    background:
+      linear-gradient(rgba(20,20,20,.05) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(90deg, rgba(20,20,20,.05) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(180deg, var(--concrete-1), var(--concrete-2)) fixed;
+  }
+  /* Линейка вместо полос «осторожно» */
+  .tape { height: 18px; background: var(--ruler); border-radius: 4px; }
+  .sign .tape, .delivery .tape { height: 18px; border-radius: 0; }
+  .cta-end .tape { height: 24px; border-radius: 0; }
+  .card::before, .product::before { height: 5px; background: var(--accent); }
+
+  /* Рамка за фото: «чертёжная синька» */
+  .photo-frame::before {
+    background:
+      linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px) 0 0 / 24px 24px,
+      #1f3b5c;
+  }
+
+  /* Цвета секций */
+  .band-dark  { background: radial-gradient(circle at 88% 0%, rgba(242,106,27,.2), transparent 42%), #1b1e21; color: #fff; }
+  .band-sand  { background: radial-gradient(circle at 10% 100%, rgba(255,255,255,.45), transparent 45%), #e6d8c0; }
+  .band-steel {
+    background:
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 36px 36px,
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 36px 36px,
+      radial-gradient(circle at 90% 0%, rgba(255,255,255,.1), transparent 45%),
+      #1f3b5c;
+    color: #fff;
+  }
+  .band-accent {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='60'%3E%3Cpath d='M0 1.5H80M0 31.5H80M1.5 0V30M41.5 30V60' stroke='%23000' stroke-opacity='.2' stroke-width='3' fill='none'/%3E%3C/svg%3E"), #9c3f27;
+    color: #fff;
+  }
+  .band-accent .lead { opacity: .92; }
+  .band-black { background: #101214; color: #fff; }
+
+  /* Короткая «балка» под заголовками разделов */
+  h2::after { content: ""; display: block; width: 72px; height: 6px; margin-top: 14px; background: var(--accent); border-radius: 2px; }
+  .cta-end h2::after { margin: 14px auto 0; background: var(--ink); }
 </style>
 <script type="application/ld+json">
 {
@@ -806,7 +856,7 @@
         <h1><mark>Еврокубы</mark>, бочки и канистры в Косшы</h1>
         <p class="lead">Пластиковые и металлические ёмкости от 20 до 1000 литров. Нажмите «Узнать наличие и цену» — ответим в WhatsApp. Есть доставка, условия уточняйте.</p>
         <div class="hero-cta">
-          <a class="btn btn-yellow" href="#catalog">Смотреть ёмкости</a>
+          <a class="btn btn-accent" href="#catalog">Смотреть ёмкости</a>
           <a class="btn btn-line" href="https://wa.me/77754479913">Написать в WhatsApp</a>
         </div>
         <a class="scroll-cue" href="#catalog"><i></i>Листайте вниз</a>
@@ -840,56 +890,56 @@
         <button class="chip" type="button" data-type="Канистры">Канистры</button>
       </div>
       <div class="products">
-        <article class="product reveal" data-type="Еврокубы">
-          <div class="thumb"><img src="images/eurocubes/eurocube-1000.jpeg" alt="Еврокуб 1000 литров, пластиковый — Косшы" loading="lazy" onerror="this.remove()"><span></span><b class="vol">1000 л</b></div>
+        <article data-unit="шт" class="product reveal" data-type="Еврокубы">
+          <div class="thumb"><img src="images/eurocubes/eurocube-1000.jpg" alt="Еврокуб 1000 литров, пластиковый — Косшы" loading="lazy" onerror="this.remove()"><span>Фото: images/eurocubes/eurocube-1000.jpg</span><b class="vol">1000 л</b></div>
           <div class="p-body">
             <h3>Еврокуб 1000 литров</h3>
             <p class="spec">Пластиковый</p>
             <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%95%D0%B2%D1%80%D0%BE%D0%BA%D1%83%D0%B1%201000%20%D0%BB%D0%B8%D1%82%D1%80%D0%BE%D0%B2%2C%20%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%D1%8B%D0%B9%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
           </div>
         </article>
-        <article class="product reveal" data-type="Бочки">
-          <div class="thumb"><img src="images/eurocubes/bochka-200-metal.png" alt="Бочка 200 литров, металлическая — Косшы" loading="lazy" onerror="this.remove()"><span></span><b class="vol">200 л</b></div>
+        <article data-unit="шт" class="product reveal" data-type="Бочки">
+          <div class="thumb"><img src="images/eurocubes/bochka-200-metal.jpg" alt="Бочка 200 литров, металлическая — Косшы" loading="lazy" onerror="this.remove()"><span>Фото: images/eurocubes/bochka-200-metal.jpg</span><b class="vol">200 л</b></div>
           <div class="p-body">
             <h3>Бочка 200 литров</h3>
             <p class="spec">Металлическая</p>
             <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%91%D0%BE%D1%87%D0%BA%D0%B0%20200%20%D0%BB%D0%B8%D1%82%D1%80%D0%BE%D0%B2%2C%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
           </div>
         </article>
-        <article class="product reveal" data-type="Бочки">
-          <div class="thumb"><img src="images/eurocubes/bochka-200-150-plastik.jpeg" alt="Бочка 200 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span></span><b class="vol">200 л</b></div>
+        <article data-unit="шт" class="product reveal" data-type="Бочки">
+          <div class="thumb"><img src="images/eurocubes/bochka-200-plastik.jpg" alt="Бочка 200 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span>Фото: images/eurocubes/bochka-200-plastik.jpg</span><b class="vol">200 л</b></div>
           <div class="p-body">
             <h3>Бочка 200 литров</h3>
             <p class="spec">Пластиковая</p>
             <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%91%D0%BE%D1%87%D0%BA%D0%B0%20200%20%D0%BB%D0%B8%D1%82%D1%80%D0%BE%D0%B2%2C%20%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
           </div>
         </article>
-        <article class="product reveal" data-type="Бочки">
-          <div class="thumb"><img src="images/eurocubes/bochka-200-150-plastik.jpeg" alt="Бочка 150 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span></span><b class="vol">150 л</b></div>
+        <article data-unit="шт" class="product reveal" data-type="Бочки">
+          <div class="thumb"><img src="images/eurocubes/bochka-150-plastik.jpg" alt="Бочка 150 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span>Фото: images/eurocubes/bochka-150-plastik.jpg</span><b class="vol">150 л</b></div>
           <div class="p-body">
             <h3>Бочка 150 литров</h3>
             <p class="spec">Пластиковая</p>
             <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%91%D0%BE%D1%87%D0%BA%D0%B0%20150%20%D0%BB%D0%B8%D1%82%D1%80%D0%BE%D0%B2%2C%20%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
           </div>
         </article>
-        <article class="product reveal" data-type="Канистры">
-          <div class="thumb"><img src="images/eurocubes/kanistra-60.png" alt="Канистра 60 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span></span><b class="vol">60 л</b></div>
+        <article data-unit="шт" class="product reveal" data-type="Канистры">
+          <div class="thumb"><img src="images/eurocubes/kanistra-60.jpg" alt="Канистра 60 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span>Фото: images/eurocubes/kanistra-60.jpg</span><b class="vol">60 л</b></div>
           <div class="p-body">
             <h3>Канистра 60 литров</h3>
             <p class="spec">Пластиковая</p>
             <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%9A%D0%B0%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%2060%20%D0%BB%D0%B8%D1%82%D1%80%D0%BE%D0%B2%2C%20%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
           </div>
         </article>
-        <article class="product reveal" data-type="Канистры">
-          <div class="thumb"><img src="images/eurocubes/kanistra-30.png" alt="Канистра 30 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span></span><b class="vol">30 л</b></div>
+        <article data-unit="шт" class="product reveal" data-type="Канистры">
+          <div class="thumb"><img src="images/eurocubes/kanistra-30.jpg" alt="Канистра 30 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span>Фото: images/eurocubes/kanistra-30.jpg</span><b class="vol">30 л</b></div>
           <div class="p-body">
             <h3>Канистра 30 литров</h3>
             <p class="spec">Пластиковая</p>
             <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%9A%D0%B0%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%2030%20%D0%BB%D0%B8%D1%82%D1%80%D0%BE%D0%B2%2C%20%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
           </div>
         </article>
-        <article class="product reveal" data-type="Канистры">
-          <div class="thumb"><img src="images/eurocubes/kanistra-20.png" alt="Канистра 20 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span></span><b class="vol">20 л</b></div>
+        <article data-unit="шт" class="product reveal" data-type="Канистры">
+          <div class="thumb"><img src="images/eurocubes/kanistra-20.jpg" alt="Канистра 20 литров, пластиковая — Косшы" loading="lazy" onerror="this.remove()"><span>Фото: images/eurocubes/kanistra-20.jpg</span><b class="vol">20 л</b></div>
           <div class="p-body">
             <h3>Канистра 20 литров</h3>
             <p class="spec">Пластиковая</p>
@@ -920,7 +970,7 @@
       </div>
       <div class="steps">
         <div class="step reveal"><h3>Выберите ёмкость</h3><p>Определитесь с типом и объёмом: еврокуб, бочка или канистра.</p></div>
-        <div class="step reveal"><h3>Узнайте наличие и цену</h3><p>Нажмите кнопку на карточке. В WhatsApp откроется готовое сообщение, укажите нужное количество и отправьте.</p></div>
+        <div class="step reveal"><h3>Узнайте наличие и цену</h3><p>Нажмите кнопку на карточке: в WhatsApp откроется готовое сообщение. Нужно несколько позиций? Добавьте их в корзину, выберите количество и отправьте список одним сообщением.</p></div>
         <div class="step reveal"><h3>Заберите или закажите доставку</h3><p>Приезжайте в Косшы, ул. Кобыланды батыра, 81, или уточните условия доставки.</p></div>
       </div>
     </div>
@@ -940,7 +990,7 @@
   </section>
 
   <!-- ============ 5. КОНТАКТЫ (жёлтый) ============ -->
-  <section class="band band-yellow">
+  <section class="band band-accent">
     <div class="wrap">
       <div class="reveal">
         <h2>Приходите или пишите</h2>
@@ -995,6 +1045,7 @@
           <a href="#contacts">Контакты</a>
           <a href="#address">Адрес</a>
           <a href="#hours">Время работы</a>
+          <a href="https://2gis.kz/search/%D0%9E%D0%BB%D0%B6%D0%B0%20%D0%9A%D0%BE%D1%81%D1%88%D1%8B%20%D0%9A%D0%BE%D0%B1%D1%8B%D0%BB%D0%B0%D0%BD%D0%B4%D1%8B%20%D0%B1%D0%B0%D1%82%D1%8B%D1%80%D0%B0%2081" data-2gis-review target="_blank" rel="noopener">Оставить отзыв</a>
         </nav>
       </footer>
     </div>
@@ -1114,5 +1165,6 @@
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+<script src="cart.js" defer></script>
 </body>
 </html>
