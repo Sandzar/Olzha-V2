@@ -35,21 +35,25 @@
 <meta name="twitter:image" content="https://olzhastroymarket.kz/images/og.jpg">
 
 <!-- Иконка вкладки браузера -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141414'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23ffc400'%3EО%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141414'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23f26a1b'%3EО%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --yellow: #ffc400;
+    --accent: #f26a1b;
+    --ruler:
+      repeating-linear-gradient(90deg, rgba(20,20,20,.9) 0 2px, transparent 2px 10px) bottom / 100% 45% no-repeat,
+      repeating-linear-gradient(90deg, rgba(20,20,20,.9) 0 2px, transparent 2px 50px) bottom / 100% 80% no-repeat,
+      #e9cf9b;
     --ink: #141414;
     --concrete-1: #ecebe7;
     --concrete-2: #cdcbc4;
     --paper: #f7f6f2;
     --head: "Oswald", "Arial Narrow", sans-serif;
     --body: "Montserrat", system-ui, sans-serif;
-    --hazard: repeating-linear-gradient(-45deg, var(--yellow) 0 14px, var(--ink) 14px 28px);
+    --hazard: repeating-linear-gradient(-45deg, var(--accent) 0 14px, var(--ink) 14px 28px);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 110px; }
@@ -84,7 +88,7 @@
   .logo {
     height: 36px; padding: 0 18px;
     display: grid; place-items: center;
-    background: var(--yellow); color: var(--ink);
+    background: var(--accent); color: var(--ink);
     font: 700 18px var(--head);
     letter-spacing: .08em;
     text-decoration: none;
@@ -106,7 +110,7 @@
   }
   .nav-links > li > a:hover, .nav-links .dd-toggle:hover,
   .nav-links a:focus-visible, .nav-links .dd-toggle:focus-visible {
-    opacity: 1; color: var(--yellow);
+    opacity: 1; color: var(--accent);
     text-decoration: underline; text-underline-offset: 6px;
   }
   .dd-toggle::after {
@@ -134,13 +138,13 @@
   .dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -34px; height: 34px; }
   .has-dd.open .dd-menu { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
   .dd-menu a { display: block; padding: 10px 14px; border-radius: 12px; font-size: 13px; opacity: 1; white-space: normal; }
-  .dd-menu a:hover { background: var(--yellow); color: var(--ink); text-decoration: none; }
+  .dd-menu a:hover { background: var(--accent); color: var(--ink); text-decoration: none; }
 
   .nav-actions { display: flex; align-items: center; gap: 10px; }
   .phone-btn {
     border: 0; cursor: pointer;
     font: 700 12px var(--body);
-    color: var(--ink); background: var(--yellow);
+    color: var(--ink); background: var(--accent);
     padding: 10px 18px; min-width: 142px;
     border-radius: 999px;
     transition: transform .15s;
@@ -178,7 +182,7 @@
   .m-sub { list-style: none; max-height: 0; overflow: hidden; transition: max-height .4s; }
   .m-sub li { margin-top: 14px; }
   .m-sub li:first-child { margin-top: 18px; }
-  .m-sub a { font-size: 13px; font-weight: 500; color: var(--yellow); }
+  .m-sub a { font-size: 13px; font-weight: 500; color: var(--accent); }
   .has-dd.open > .m-sub { max-height: 640px; }
 
   /* =========================================================
@@ -200,7 +204,7 @@
   .band-dark  { background: radial-gradient(circle at 88% 0%, rgba(255,196,0,.16), transparent 42%), #171717; color: #fff; }
   .band-sand  { background: radial-gradient(circle at 10% 100%, rgba(255,255,255,.7), transparent 45%), #f6e7b4; }
   .band-steel { background: radial-gradient(circle at 90% 0%, rgba(255,255,255,.12), transparent 45%), #2c3944; color: #fff; }
-  .band-yellow{ background: radial-gradient(circle at 0% 0%, rgba(255,255,255,.35), transparent 40%), var(--yellow); }
+  .band-accent{ background: radial-gradient(circle at 0% 0%, rgba(255,255,255,.35), transparent 40%), var(--accent); }
   .band-black { background: #0e0e0e; color: #fff; }
 
   .btn {
@@ -209,7 +213,7 @@
     transition: transform .15s, background .2s;
   }
   .btn:hover { transform: translateY(-2px); }
-  .btn-yellow { background: var(--yellow); color: var(--ink); }
+  .btn-accent { background: var(--accent); color: var(--ink); }
   .btn-dark { background: var(--ink); color: #fff; }
   .btn-line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
 
@@ -229,7 +233,7 @@
     text-transform: uppercase;
     letter-spacing: .005em;
   }
-  .hero h1 mark { background: var(--yellow); color: var(--ink); padding: 0 .12em; }
+  .hero h1 mark { background: var(--accent); color: var(--ink); padding: 0 .12em; }
   .hero .lead { margin-top: 26px; font-size: 19px; }
   .hero-cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
 
@@ -246,7 +250,7 @@
   .status[data-open="true"]::before { background: #3ddc84; }
   .status[data-open="false"]::before { background: #ff5a4d; }
   .sign small { display: block; margin-top: 26px; font-size: 12px; opacity: .6; font-weight: 600; }
-  .sign .big { font: 700 40px/1.1 var(--head); color: var(--yellow); margin-top: 4px; }
+  .sign .big { font: 700 40px/1.1 var(--head); color: var(--accent); margin-top: 4px; }
   .sign p { margin-top: 6px; font-size: 15px; line-height: 1.5; }
 
   .scroll-cue {
@@ -289,16 +293,16 @@
   .card:hover .thumb img { transform: scale(1.07); }
   .card-body { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 14px 16px 16px; flex: 1; }
   .card h3 { font: 600 17px/1.2 var(--head); text-transform: uppercase; letter-spacing: .02em; }
-  .card i { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--yellow); position: relative; transition: background .25s; }
+  .card i { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); position: relative; transition: background .25s; }
   .card i::after {
     content: ""; position: absolute; left: 9px; top: 11px;
     width: 7px; height: 7px;
     border-top: 2px solid var(--ink); border-right: 2px solid var(--ink);
     transform: rotate(45deg);
   }
-  .card:hover { transform: translateY(-5px); background: var(--yellow); color: var(--ink); }
+  .card:hover { transform: translateY(-5px); background: var(--accent); color: var(--ink); }
   .card:hover i { background: var(--ink); }
-  .card:hover i::after { border-color: var(--yellow); }
+  .card:hover i::after { border-color: var(--accent); }
 
   /* =========================================================
      3. О МАГАЗИНЕ (песочная секция) + слайдер фото
@@ -334,7 +338,7 @@
   .circle-btn {
     width: 44px; height: 44px; border-radius: 50%;
     border: 0; cursor: pointer;
-    background: var(--yellow); position: relative;
+    background: var(--accent); position: relative;
     transition: transform .15s, background .2s;
   }
   .circle-btn:hover { transform: scale(1.08); }
@@ -348,7 +352,7 @@
   .circle-btn.prev::after { transform: translate(-35%, -50%) rotate(-135deg); }
   .dots { display: flex; gap: 8px; padding: 9px 12px; background: rgba(20,20,20,.55); border-radius: 999px; }
   .dots button { width: 9px; height: 9px; border-radius: 50%; border: 0; background: rgba(255,255,255,.5); cursor: pointer; padding: 0; transition: background .2s, width .25s; }
-  .dots button.active { background: var(--yellow); width: 24px; border-radius: 6px; }
+  .dots button.active { background: var(--accent); width: 24px; border-radius: 6px; }
 
   .facts { margin-top: 26px; list-style: none; border-top: 2px solid var(--ink); }
   .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(20,20,20,.2); font-size: 15px; }
@@ -359,7 +363,7 @@
      4. ВРЕМЯ РАБОТЫ / КОНТАКТЫ / АДРЕС (стальная секция)
   ========================================================= */
   .info { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .panel { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 32px 28px; border-top: 10px solid var(--yellow); }
+  .panel { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 32px 28px; border-top: 10px solid var(--accent); }
   .panel h3 { font: 700 26px var(--head); text-transform: uppercase; margin-bottom: 18px; }
   .panel p { font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
   .panel .time { font: 700 44px/1 var(--head); margin-bottom: 10px; }
@@ -371,7 +375,7 @@
     font-size: 14px; font-weight: 600;
     transition: background .2s, color .2s, transform .15s;
   }
-  .links a:hover { background: var(--yellow); color: var(--ink); transform: translateX(4px); }
+  .links a:hover { background: var(--accent); color: var(--ink); transform: translateX(4px); }
 
   /* =========================================================
      5. ОТЗЫВЫ (жёлтая секция) — карусель
@@ -379,7 +383,7 @@
   .rev-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
   .rev-nav { display: flex; gap: 10px; }
   .rev-nav .circle-btn { background: var(--ink); }
-  .rev-nav .circle-btn::after { border-color: var(--yellow); }
+  .rev-nav .circle-btn::after { border-color: var(--accent); }
 
   .reviews {
     margin-top: 40px;
@@ -399,21 +403,21 @@
     min-height: 280px;
   }
   .rev-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-  .stars { color: var(--yellow); letter-spacing: 3px; font-size: 17px; }
+  .stars { color: var(--accent); letter-spacing: 3px; font-size: 17px; }
   .source {
     font-size: 11px; font-weight: 700;
     padding: 6px 12px; border-radius: 999px;
     background: rgba(255,255,255,.12); color: #fff;
     text-decoration: none; white-space: nowrap;
   }
-  a.source:hover { background: var(--yellow); color: var(--ink); }
+  a.source:hover { background: var(--accent); color: var(--ink); }
   .review p { font-size: 15px; line-height: 1.65; opacity: .92; }
   .review b { margin-top: auto; font-size: 14px; }
 
   /* =========================================================
      6. ФИНАЛ (чёрная секция)
   ========================================================= */
-  .cta-end { background: var(--yellow); color: var(--ink); border-radius: 40px; overflow: hidden; text-align: center; }
+  .cta-end { background: var(--accent); color: var(--ink); border-radius: 40px; overflow: hidden; text-align: center; }
   .cta-end .tape { border-radius: 0; height: 22px; }
   .cta-end-body { padding: 56px 32px 60px; }
   .cta-end h2 { max-width: 14ch; margin: 0 auto 14px; }
@@ -426,7 +430,7 @@
   }
   footer span { opacity: .7; }
   footer a { color: inherit; text-decoration: none; margin-left: 18px; opacity: .8; }
-  footer a:hover { opacity: 1; color: var(--yellow); }
+  footer a:hover { opacity: 1; color: var(--accent); }
 
   /* =========================================================
      АДАПТИВ
@@ -466,6 +470,52 @@
     * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
     .reveal { opacity: 1; transform: none; }
   }
+
+  /* =========================================================
+     СТРОИТЕЛЬНАЯ ТЕМА: бетон, чертёж, кирпич, оранжевый
+     (убраны жёлто-чёрные полосы, похожие на дорожные знаки)
+  ========================================================= */
+  body {
+    background:
+      linear-gradient(rgba(20,20,20,.05) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(90deg, rgba(20,20,20,.05) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(180deg, var(--concrete-1), var(--concrete-2)) fixed;
+  }
+  /* Линейка вместо полос «осторожно» */
+  .tape { height: 18px; background: var(--ruler); border-radius: 4px; }
+  .sign .tape, .delivery .tape { height: 18px; border-radius: 0; }
+  .cta-end .tape { height: 24px; border-radius: 0; }
+  .card::before, .product::before { height: 5px; background: var(--accent); }
+
+  /* Рамка за фото: «чертёжная синька» */
+  .photo-frame::before {
+    background:
+      linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px) 0 0 / 24px 24px,
+      #1f3b5c;
+  }
+
+  /* Цвета секций */
+  .band-dark  { background: radial-gradient(circle at 88% 0%, rgba(242,106,27,.2), transparent 42%), #1b1e21; color: #fff; }
+  .band-sand  { background: radial-gradient(circle at 10% 100%, rgba(255,255,255,.45), transparent 45%), #e6d8c0; }
+  .band-steel {
+    background:
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 36px 36px,
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 36px 36px,
+      radial-gradient(circle at 90% 0%, rgba(255,255,255,.1), transparent 45%),
+      #1f3b5c;
+    color: #fff;
+  }
+  .band-accent {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='60'%3E%3Cpath d='M0 1.5H80M0 31.5H80M1.5 0V30M41.5 30V60' stroke='%23000' stroke-opacity='.2' stroke-width='3' fill='none'/%3E%3C/svg%3E"), #9c3f27;
+    color: #fff;
+  }
+  .band-accent .lead { opacity: .92; }
+  .band-black { background: #101214; color: #fff; }
+
+  /* Короткая «балка» под заголовками разделов */
+  h2::after { content: ""; display: block; width: 72px; height: 6px; margin-top: 14px; background: var(--accent); border-radius: 2px; }
+  .cta-end h2::after { margin: 14px auto 0; background: var(--ink); }
 </style>
 <script type="application/ld+json">
 {
@@ -627,7 +677,7 @@
         <h1>Всё для <mark>стройки</mark> и ремонта в Косшы</h1>
         <p class="lead">Строительный магазин «Олжа»: строительные и ремонтные материалы, а нужный инструмент можно взять в прокат.</p>
         <div class="hero-cta">
-          <a class="btn btn-yellow" href="#assortment">Смотреть ассортимент</a>
+          <a class="btn btn-accent" href="#assortment">Смотреть ассортимент</a>
           <a class="btn btn-line" href="https://wa.me/77754479913">Написать в WhatsApp</a>
         </div>
         <a class="scroll-cue" href="#assortment"><i></i>Листайте вниз</a>
@@ -747,12 +797,13 @@
   </section>
 
   <!-- ============ 5. ОТЗЫВЫ (жёлтый) ============ -->
-  <section class="band band-yellow" id="reviews">
+  <section class="band band-accent" id="reviews">
     <div class="wrap">
       <div class="rev-head reveal">
         <div>
           <h2>Отзывы покупателей</h2>
           <p class="lead">Что говорят о магазине наши клиенты. Листайте, чтобы увидеть больше.</p>
+          <a class="btn btn-dark btn-review" style="margin-top:22px" href="https://2gis.kz/search/%D0%9E%D0%BB%D0%B6%D0%B0%20%D0%9A%D0%BE%D1%81%D1%88%D1%8B%20%D0%9A%D0%BE%D0%B1%D1%8B%D0%BB%D0%B0%D0%BD%D0%B4%D1%8B%20%D0%B1%D0%B0%D1%82%D1%8B%D1%80%D0%B0%2081" data-2gis-review target="_blank" rel="noopener">Написать отзыв в 2ГИС</a>
         </div>
         <div class="rev-nav">
           <button class="circle-btn prev" id="revPrev" type="button" aria-label="Предыдущие отзывы"></button>
@@ -793,6 +844,7 @@
           <a href="#address">Адрес</a>
           <a href="#hours">Время работы</a>
           <a href="https://olzhastroymarket.kz/">olzhastroymarket.kz</a>
+          <a href="https://2gis.kz/search/%D0%9E%D0%BB%D0%B6%D0%B0%20%D0%9A%D0%BE%D1%81%D1%88%D1%8B%20%D0%9A%D0%BE%D0%B1%D1%8B%D0%BB%D0%B0%D0%BD%D0%B4%D1%8B%20%D0%B1%D0%B0%D1%82%D1%8B%D1%80%D0%B0%2081" data-2gis-review target="_blank" rel="noopener">Оставить отзыв</a>
         </nav>
       </footer>
     </div>
@@ -944,5 +996,6 @@
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+<script src="cart.js" defer></script>
 </body>
 </html>
