@@ -23,20 +23,24 @@
 <meta property="og:url" content="https://olzhastroymarket.kz/metal.html">
 <meta property="og:image" content="https://olzhastroymarket.kz/images/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141414'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23ffc400'%3EО%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141414'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23f26a1b'%3EО%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --yellow: #ffc400;
+    --accent: #f26a1b;
+    --ruler:
+      repeating-linear-gradient(90deg, rgba(20,20,20,.9) 0 2px, transparent 2px 10px) bottom / 100% 45% no-repeat,
+      repeating-linear-gradient(90deg, rgba(20,20,20,.9) 0 2px, transparent 2px 50px) bottom / 100% 80% no-repeat,
+      #e9cf9b;
     --ink: #141414;
     --concrete-1: #ecebe7;
     --concrete-2: #cdcbc4;
     --paper: #f7f6f2;
     --head: "Oswald", "Arial Narrow", sans-serif;
     --body: "Montserrat", system-ui, sans-serif;
-    --hazard: repeating-linear-gradient(-45deg, var(--yellow) 0 14px, var(--ink) 14px 28px);
+    --hazard: repeating-linear-gradient(-45deg, var(--accent) 0 14px, var(--ink) 14px 28px);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 110px; }
@@ -71,7 +75,7 @@
   .logo {
     height: 36px; padding: 0 18px;
     display: grid; place-items: center;
-    background: var(--yellow); color: var(--ink);
+    background: var(--accent); color: var(--ink);
     font: 700 18px var(--head);
     letter-spacing: .08em;
     text-decoration: none;
@@ -93,7 +97,7 @@
   }
   .nav-links > li > a:hover, .nav-links .dd-toggle:hover,
   .nav-links a:focus-visible, .nav-links .dd-toggle:focus-visible {
-    opacity: 1; color: var(--yellow);
+    opacity: 1; color: var(--accent);
     text-decoration: underline; text-underline-offset: 6px;
   }
   .dd-toggle::after {
@@ -121,13 +125,13 @@
   .dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -34px; height: 34px; }
   .has-dd.open .dd-menu { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
   .dd-menu a { display: block; padding: 10px 14px; border-radius: 12px; font-size: 13px; opacity: 1; white-space: normal; }
-  .dd-menu a:hover { background: var(--yellow); color: var(--ink); text-decoration: none; }
+  .dd-menu a:hover { background: var(--accent); color: var(--ink); text-decoration: none; }
 
   .nav-actions { display: flex; align-items: center; gap: 10px; }
   .phone-btn {
     border: 0; cursor: pointer;
     font: 700 12px var(--body);
-    color: var(--ink); background: var(--yellow);
+    color: var(--ink); background: var(--accent);
     padding: 10px 18px; min-width: 142px;
     border-radius: 999px;
     transition: transform .15s;
@@ -165,7 +169,7 @@
   .m-sub { list-style: none; max-height: 0; overflow: hidden; transition: max-height .4s; }
   .m-sub li { margin-top: 14px; }
   .m-sub li:first-child { margin-top: 18px; }
-  .m-sub a { font-size: 13px; font-weight: 500; color: var(--yellow); }
+  .m-sub a { font-size: 13px; font-weight: 500; color: var(--accent); }
   .has-dd.open > .m-sub { max-height: 640px; }
 
   /* =========================================================
@@ -187,7 +191,7 @@
   .band-dark  { background: radial-gradient(circle at 88% 0%, rgba(255,196,0,.16), transparent 42%), #171717; color: #fff; }
   .band-sand  { background: radial-gradient(circle at 10% 100%, rgba(255,255,255,.7), transparent 45%), #f6e7b4; }
   .band-steel { background: radial-gradient(circle at 90% 0%, rgba(255,255,255,.12), transparent 45%), #2c3944; color: #fff; }
-  .band-yellow{ background: radial-gradient(circle at 0% 0%, rgba(255,255,255,.35), transparent 40%), var(--yellow); }
+  .band-accent{ background: radial-gradient(circle at 0% 0%, rgba(255,255,255,.35), transparent 40%), var(--accent); }
   .band-black { background: #0e0e0e; color: #fff; }
 
   .btn {
@@ -196,7 +200,7 @@
     transition: transform .15s, background .2s;
   }
   .btn:hover { transform: translateY(-2px); }
-  .btn-yellow { background: var(--yellow); color: var(--ink); }
+  .btn-accent { background: var(--accent); color: var(--ink); }
   .btn-dark { background: var(--ink); color: #fff; }
   .btn-line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
 
@@ -216,7 +220,7 @@
     text-transform: uppercase;
     letter-spacing: .005em;
   }
-  .hero h1 mark { background: var(--yellow); color: var(--ink); padding: 0 .12em; }
+  .hero h1 mark { background: var(--accent); color: var(--ink); padding: 0 .12em; }
   .hero .lead { margin-top: 26px; font-size: 19px; }
   .hero-cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
 
@@ -233,7 +237,7 @@
   .status[data-open="true"]::before { background: #3ddc84; }
   .status[data-open="false"]::before { background: #ff5a4d; }
   .sign small { display: block; margin-top: 26px; font-size: 12px; opacity: .6; font-weight: 600; }
-  .sign .big { font: 700 40px/1.1 var(--head); color: var(--yellow); margin-top: 4px; }
+  .sign .big { font: 700 40px/1.1 var(--head); color: var(--accent); margin-top: 4px; }
   .sign p { margin-top: 6px; font-size: 15px; line-height: 1.5; }
 
   .scroll-cue {
@@ -276,16 +280,16 @@
   .card:hover .thumb img { transform: scale(1.07); }
   .card-body { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 14px 16px 16px; flex: 1; }
   .card h3 { font: 600 17px/1.2 var(--head); text-transform: uppercase; letter-spacing: .02em; }
-  .card i { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--yellow); position: relative; transition: background .25s; }
+  .card i { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); position: relative; transition: background .25s; }
   .card i::after {
     content: ""; position: absolute; left: 9px; top: 11px;
     width: 7px; height: 7px;
     border-top: 2px solid var(--ink); border-right: 2px solid var(--ink);
     transform: rotate(45deg);
   }
-  .card:hover { transform: translateY(-5px); background: var(--yellow); color: var(--ink); }
+  .card:hover { transform: translateY(-5px); background: var(--accent); color: var(--ink); }
   .card:hover i { background: var(--ink); }
-  .card:hover i::after { border-color: var(--yellow); }
+  .card:hover i::after { border-color: var(--accent); }
 
   /* =========================================================
      3. О МАГАЗИНЕ (песочная секция) + слайдер фото
@@ -321,7 +325,7 @@
   .circle-btn {
     width: 44px; height: 44px; border-radius: 50%;
     border: 0; cursor: pointer;
-    background: var(--yellow); position: relative;
+    background: var(--accent); position: relative;
     transition: transform .15s, background .2s;
   }
   .circle-btn:hover { transform: scale(1.08); }
@@ -335,7 +339,7 @@
   .circle-btn.prev::after { transform: translate(-35%, -50%) rotate(-135deg); }
   .dots { display: flex; gap: 8px; padding: 9px 12px; background: rgba(20,20,20,.55); border-radius: 999px; }
   .dots button { width: 9px; height: 9px; border-radius: 50%; border: 0; background: rgba(255,255,255,.5); cursor: pointer; padding: 0; transition: background .2s, width .25s; }
-  .dots button.active { background: var(--yellow); width: 24px; border-radius: 6px; }
+  .dots button.active { background: var(--accent); width: 24px; border-radius: 6px; }
 
   .facts { margin-top: 26px; list-style: none; border-top: 2px solid var(--ink); }
   .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(20,20,20,.2); font-size: 15px; }
@@ -346,7 +350,7 @@
      4. ВРЕМЯ РАБОТЫ / КОНТАКТЫ / АДРЕС (стальная секция)
   ========================================================= */
   .info { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .panel { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 32px 28px; border-top: 10px solid var(--yellow); }
+  .panel { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 32px 28px; border-top: 10px solid var(--accent); }
   .panel h3 { font: 700 26px var(--head); text-transform: uppercase; margin-bottom: 18px; }
   .panel p { font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
   .panel .time { font: 700 44px/1 var(--head); margin-bottom: 10px; }
@@ -358,7 +362,7 @@
     font-size: 14px; font-weight: 600;
     transition: background .2s, color .2s, transform .15s;
   }
-  .links a:hover { background: var(--yellow); color: var(--ink); transform: translateX(4px); }
+  .links a:hover { background: var(--accent); color: var(--ink); transform: translateX(4px); }
 
   /* =========================================================
      5. ОТЗЫВЫ (жёлтая секция) — карусель
@@ -366,7 +370,7 @@
   .rev-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
   .rev-nav { display: flex; gap: 10px; }
   .rev-nav .circle-btn { background: var(--ink); }
-  .rev-nav .circle-btn::after { border-color: var(--yellow); }
+  .rev-nav .circle-btn::after { border-color: var(--accent); }
 
   .reviews {
     margin-top: 40px;
@@ -386,21 +390,21 @@
     min-height: 280px;
   }
   .rev-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-  .stars { color: var(--yellow); letter-spacing: 3px; font-size: 17px; }
+  .stars { color: var(--accent); letter-spacing: 3px; font-size: 17px; }
   .source {
     font-size: 11px; font-weight: 700;
     padding: 6px 12px; border-radius: 999px;
     background: rgba(255,255,255,.12); color: #fff;
     text-decoration: none; white-space: nowrap;
   }
-  a.source:hover { background: var(--yellow); color: var(--ink); }
+  a.source:hover { background: var(--accent); color: var(--ink); }
   .review p { font-size: 15px; line-height: 1.65; opacity: .92; }
   .review b { margin-top: auto; font-size: 14px; }
 
   /* =========================================================
      6. ФИНАЛ (чёрная секция)
   ========================================================= */
-  .cta-end { background: var(--yellow); color: var(--ink); border-radius: 40px; overflow: hidden; text-align: center; }
+  .cta-end { background: var(--accent); color: var(--ink); border-radius: 40px; overflow: hidden; text-align: center; }
   .cta-end .tape { border-radius: 0; height: 22px; }
   .cta-end-body { padding: 56px 32px 60px; }
   .cta-end h2 { max-width: 14ch; margin: 0 auto 14px; }
@@ -413,7 +417,7 @@
   }
   footer span { opacity: .7; }
   footer a { color: inherit; text-decoration: none; margin-left: 18px; opacity: .8; }
-  footer a:hover { opacity: 1; color: var(--yellow); }
+  footer a:hover { opacity: 1; color: var(--accent); }
 
   /* =========================================================
      АДАПТИВ
@@ -468,7 +472,7 @@
     font: 600 15px var(--body);
     outline: none;
   }
-  .search:focus { border-color: var(--yellow); }
+  .search:focus { border-color: var(--accent); }
   .note { font-size: 13px; opacity: .65; max-width: 52ch; line-height: 1.5; }
 
   .products { margin-top: 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -483,21 +487,21 @@
   .p-body { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
   .product h3 { font: 600 18px/1.2 var(--head); text-transform: uppercase; letter-spacing: .02em; }
   .spec { font-size: 12px; opacity: .65; font-weight: 600; }
-  .price { font: 700 26px/1.1 var(--head); color: var(--yellow); margin: 4px 0 10px; }
+  .price { font: 700 26px/1.1 var(--head); color: var(--accent); margin: 4px 0 10px; }
   .wa-btn {
     margin-top: auto; text-align: center;
     padding: 13px 14px; border-radius: 999px;
-    background: var(--yellow); color: var(--ink);
+    background: var(--accent); color: var(--ink);
     font: 700 13px/1.25 var(--body); text-decoration: none;
     transition: transform .15s, background .2s;
   }
   .wa-btn:hover { transform: translateY(-2px); background: #fff; }
   .empty { margin-top: 32px; font-size: 16px; }
-  .empty a { color: var(--yellow); font-weight: 700; }
+  .empty a { color: var(--accent); font-weight: 700; }
 
   .steps { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
   .step { background: var(--ink); color: #fff; border-radius: 28px; padding: 30px 28px; counter-increment: s; }
-  .step::before { content: counter(s); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--yellow); color: var(--ink); font: 700 24px var(--head); margin-bottom: 18px; }
+  .step::before { content: counter(s); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--ink); font: 700 24px var(--head); margin-bottom: 18px; }
   .step h3 { font: 600 22px var(--head); text-transform: uppercase; margin-bottom: 8px; }
   .step p { font-size: 15px; line-height: 1.6; opacity: .85; }
 
@@ -505,7 +509,7 @@
   .faq-item { background: rgba(255,255,255,.08); border-radius: 22px; padding: 0 26px; }
   .faq-item summary { cursor: pointer; list-style: none; padding: 22px 0; font: 600 20px/1.3 var(--head); text-transform: uppercase; display: flex; justify-content: space-between; gap: 16px; }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: "+"; color: var(--yellow); font-size: 28px; line-height: 1; transition: transform .25s; }
+  .faq-item summary::after { content: "+"; color: var(--accent); font-size: 28px; line-height: 1; transition: transform .25s; }
   .faq-item.is-open summary::after { transform: rotate(45deg); }
   .faq-item p { padding: 0 0 22px; font-size: 15px; line-height: 1.7; opacity: .85; }
 
@@ -533,7 +537,7 @@
     transition: background .2s, color .2s, transform .15s;
   }
   .chip:hover { transform: translateY(-2px); background: rgba(255,255,255,.2); }
-  .chip.active { background: var(--yellow); color: var(--ink); }
+  .chip.active { background: var(--accent); color: var(--ink); }
 
   .group { margin-top: 56px; scroll-margin-top: 110px; }
   .group-title { font: 700 clamp(26px, 3.4vw, 36px)/1.1 var(--head); text-transform: uppercase; display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; }
@@ -556,7 +560,7 @@
     border: 2px solid rgba(255,255,255,.3);
     transition: background .2s, color .2s, border-color .2s;
   }
-  .add-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+  .add-btn:hover { border-color: var(--accent); color: var(--accent); }
   .add-btn.on { background: #fff; color: var(--ink); border-color: #fff; }
 
   .req-bar {
@@ -564,19 +568,19 @@
     transform: translate(-50%, 160%);
     transition: transform .4s cubic-bezier(.2,.7,.2,1);
     background: var(--ink); color: #fff;
-    border: 2px solid var(--yellow); border-radius: 999px;
+    border: 2px solid var(--accent); border-radius: 999px;
     padding: 10px 10px 10px 24px;
     display: flex; align-items: center; gap: 14px;
     box-shadow: 0 12px 40px rgba(0,0,0,.4);
     font-size: 14px; font-weight: 700; white-space: nowrap;
   }
   .req-bar.show { transform: translate(-50%, 0); }
-  .req-bar b { color: var(--yellow); }
-  .req-send { background: var(--yellow); color: var(--ink); text-decoration: none; padding: 12px 20px; border-radius: 999px; font-size: 13px; }
+  .req-bar b { color: var(--accent); }
+  .req-send { background: var(--accent); color: var(--ink); text-decoration: none; padding: 12px 20px; border-radius: 999px; font-size: 13px; }
   .req-clear { background: none; border: 0; color: #fff; opacity: .65; cursor: pointer; font: 600 12px var(--body); padding: 6px 8px; }
   .req-clear:hover { opacity: 1; }
 
-  .delivery { margin-top: 56px; background: var(--yellow); color: var(--ink); border-radius: 28px; overflow: hidden; }
+  .delivery { margin-top: 56px; background: var(--accent); color: var(--ink); border-radius: 28px; overflow: hidden; }
   .delivery .tape { border-radius: 0; height: 14px; }
   .delivery-in { padding: 22px 32px 30px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .delivery h3 { font: 700 30px/1.1 var(--head); text-transform: uppercase; margin-bottom: 8px; }
@@ -597,6 +601,52 @@
     .delivery-in { padding: 18px 22px 26px; }
     .delivery h3 { font-size: 24px; }
   }
+
+  /* =========================================================
+     СТРОИТЕЛЬНАЯ ТЕМА: бетон, чертёж, кирпич, оранжевый
+     (убраны жёлто-чёрные полосы, похожие на дорожные знаки)
+  ========================================================= */
+  body {
+    background:
+      linear-gradient(rgba(20,20,20,.05) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(90deg, rgba(20,20,20,.05) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(180deg, var(--concrete-1), var(--concrete-2)) fixed;
+  }
+  /* Линейка вместо полос «осторожно» */
+  .tape { height: 18px; background: var(--ruler); border-radius: 4px; }
+  .sign .tape, .delivery .tape { height: 18px; border-radius: 0; }
+  .cta-end .tape { height: 24px; border-radius: 0; }
+  .card::before, .product::before { height: 5px; background: var(--accent); }
+
+  /* Рамка за фото: «чертёжная синька» */
+  .photo-frame::before {
+    background:
+      linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px) 0 0 / 24px 24px,
+      #1f3b5c;
+  }
+
+  /* Цвета секций */
+  .band-dark  { background: radial-gradient(circle at 88% 0%, rgba(242,106,27,.2), transparent 42%), #1b1e21; color: #fff; }
+  .band-sand  { background: radial-gradient(circle at 10% 100%, rgba(255,255,255,.45), transparent 45%), #e6d8c0; }
+  .band-steel {
+    background:
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 36px 36px,
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 36px 36px,
+      radial-gradient(circle at 90% 0%, rgba(255,255,255,.1), transparent 45%),
+      #1f3b5c;
+    color: #fff;
+  }
+  .band-accent {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='60'%3E%3Cpath d='M0 1.5H80M0 31.5H80M1.5 0V30M41.5 30V60' stroke='%23000' stroke-opacity='.2' stroke-width='3' fill='none'/%3E%3C/svg%3E"), #9c3f27;
+    color: #fff;
+  }
+  .band-accent .lead { opacity: .92; }
+  .band-black { background: #101214; color: #fff; }
+
+  /* Короткая «балка» под заголовками разделов */
+  h2::after { content: ""; display: block; width: 72px; height: 6px; margin-top: 14px; background: var(--accent); border-radius: 2px; }
+  .cta-end h2::after { margin: 14px auto 0; background: var(--ink); }
 </style>
 <script type="application/ld+json">
 {
@@ -1256,7 +1306,7 @@
      "name": "Как узнать наличие и цену?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Нажмите на карточке кнопку «Узнать наличие и цену»: откроется WhatsApp с готовым сообщением. Если нужно несколько позиций, отметьте их кнопкой «Добавить в список» и отправьте один запрос. Можно также позвонить по телефону +7 775 447 9913."
+      "text": "Нажмите на карточке кнопку «Узнать наличие и цену»: откроется WhatsApp с готовым сообщением. Если нужно несколько позиций, добавьте их в корзину кнопкой «В корзину», выберите количество и отправьте корзину одним сообщением в WhatsApp. Можно также позвонить по телефону +7 775 447 9913."
      }
     },
     {
@@ -1374,7 +1424,7 @@
         <h1><mark>Металлы</mark> в Косшы: трубы, арматура, листы</h1>
         <p class="lead">Профильные и круглые трубы, арматура, уголки, катанка и листы. Цены за погонный метр. Нажмите «Узнать наличие и цену» — ответим в WhatsApp.</p>
         <div class="hero-cta">
-          <a class="btn btn-yellow" href="#catalog">Смотреть каталог</a>
+          <a class="btn btn-accent" href="#catalog">Смотреть каталог</a>
           <a class="btn btn-line" href="https://wa.me/77754479913">Написать в WhatsApp</a>
         </div>
         <a class="scroll-cue" href="#catalog"><i></i>Листайте вниз</a>
@@ -1399,7 +1449,7 @@
     <div class="wrap">
       <div class="reveal">
         <h2>Каталог металлов</h2>
-        <p class="lead">21 позиций. Нажмите «Узнать наличие и цену» на нужной карточке или отметьте несколько позиций и отправьте один запрос.</p>
+        <p class="lead">21 позиций. Нажмите «Узнать наличие и цену» на нужной карточке или соберите корзину: выберите количество и отправьте весь список одним сообщением.</p>
       </div>
       <div class="search-row">
         <input class="search" id="search" type="search" placeholder="Поиск, например: арматура 12 или 60x60" aria-label="Поиск по каталогу">
@@ -1418,59 +1468,54 @@
       <div class="group" data-cat="profil" id="profil">
         <h3 class="group-title">Профильные трубы <small>Цена за 1 погонный метр</small></h3>
         <div class="products">
-          <article class="product reveal" data-name="труба профильная 40x20x1.5 40x20x1.5 мм металл" data-title="Труба профильная 40x20x1.5">
-            <div class="thumb"><img src="images/metal/truba-profilnayaa.png" alt="Труба профильная 40x20x1.5 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба профильная 40x20x1.5 40x20x1.5 мм металл" data-title="Труба профильная 40x20x1.5">
+            <div class="thumb"><img src="images/metal/truba-profilnaya-40x20x1-5.jpg" alt="Труба профильная 40x20x1.5 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-profilnaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба профильная 40x20x1.5</h3>
               <p class="desc">Прямоугольного сечения, металлическая. Цена за 1 погонный метр.</p>
               <p class="tags"><span>40x20x1.5 мм</span><span>Металл</span></p>
               <div class="price">800&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%2040x20x1.5%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="труба профильная 40x40x2.8 40x40x2.8 мм металл" data-title="Труба профильная 40x40x2.8">
-            <div class="thumb"><img src="images/metal/truba-profilnaya.png" alt="Труба профильная 40x40x2.8 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба профильная 40x40x2.8 40x40x2.8 мм металл" data-title="Труба профильная 40x40x2.8">
+            <div class="thumb"><img src="images/metal/truba-profilnaya-40x40x2-8.jpg" alt="Труба профильная 40x40x2.8 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-profilnaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба профильная 40x40x2.8</h3>
               <p class="desc">Квадратного сечения, металлическая. Цена за 1 погонный метр.</p>
               <p class="tags"><span>40x40x2.8 мм</span><span>Металл</span></p>
               <div class="price">1 800&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%2040x40x2.8%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="труба профильная 60x60x1.5 60x60x1.5 мм металл" data-title="Труба профильная 60x60x1.5">
-            <div class="thumb"><img src="images/metal/truba-profilnaya.png" alt="Труба профильная 60x60x1.5 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба профильная 60x60x1.5 60x60x1.5 мм металл" data-title="Труба профильная 60x60x1.5">
+            <div class="thumb"><img src="images/metal/truba-profilnaya-60x60x1-5.jpg" alt="Труба профильная 60x60x1.5 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-profilnaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба профильная 60x60x1.5</h3>
               <p class="desc">Квадратного сечения, металлическая. Цена за 1 погонный метр.</p>
               <p class="tags"><span>60x60x1.5 мм</span><span>Металл</span></p>
               <div class="price">2 000&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%2060x60x1.5%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="труба профильная 80x80x3 80x80x3 мм металл" data-title="Труба профильная 80x80x3">
-            <div class="thumb"><img src="images/metal/truba-profilnaya.png" alt="Труба профильная 80x80x3 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба профильная 80x80x3 80x80x3 мм металл" data-title="Труба профильная 80x80x3">
+            <div class="thumb"><img src="images/metal/truba-profilnaya-80x80x3.jpg" alt="Труба профильная 80x80x3 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-profilnaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба профильная 80x80x3</h3>
               <p class="desc">Квадратного сечения, металлическая. Цена за 1 погонный метр.</p>
               <p class="tags"><span>80x80x3 мм</span><span>Металл</span></p>
               <div class="price">3 300&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%2080x80x3%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="труба профильная 100x100x3 100x100x3 мм металл" data-title="Труба профильная 100x100x3">
-            <div class="thumb"><img src="images/metal/truba-profilnaya.png" alt="Труба профильная 100x100x3 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба профильная 100x100x3 100x100x3 мм металл" data-title="Труба профильная 100x100x3">
+            <div class="thumb"><img src="images/metal/truba-profilnaya-100x100x3.jpg" alt="Труба профильная 100x100x3 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-profilnaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-profilnaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба профильная 100x100x3</h3>
               <p class="desc">Квадратного сечения, металлическая. Цена за 1 погонный метр.</p>
               <p class="tags"><span>100x100x3 мм</span><span>Металл</span></p>
               <div class="price">4 200&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20100x100x3%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
         </div>
@@ -1478,48 +1523,44 @@
       <div class="group" data-cat="round" id="round">
         <h3 class="group-title">Круглые трубы <small>Цена за 1 погонный метр</small></h3>
         <div class="products">
-          <article class="product reveal" data-name="труба металлическая d 15 d 15 мм металл" data-title="Труба металлическая d 15">
-            <div class="thumb"><img src="images/metal/truba-kruglaya.png" alt="Труба металлическая d 15 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-kruglaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба металлическая d 15 d 15 мм металл" data-title="Труба металлическая d 15">
+            <div class="thumb"><img src="images/metal/truba-d15.jpg" alt="Труба металлическая d 15 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-kruglaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-kruglaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба металлическая d 15</h3>
               <p class="desc">Круглого сечения, водогазопроводная. Цена за 1 погонный метр.</p>
               <p class="tags"><span>d 15 мм</span><span>Металл</span></p>
               <div class="price">650&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20d%2015%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="труба металлическая d 20 d 20 мм металл" data-title="Труба металлическая d 20">
-            <div class="thumb"><img src="images/metal/truba-kruglaya.png" alt="Труба металлическая d 20 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-kruglaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба металлическая d 20 d 20 мм металл" data-title="Труба металлическая d 20">
+            <div class="thumb"><img src="images/metal/truba-d20.jpg" alt="Труба металлическая d 20 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-kruglaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-kruglaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба металлическая d 20</h3>
               <p class="desc">Круглого сечения, металлическая. Цена за 1 погонный метр.</p>
               <p class="tags"><span>d 20 мм</span><span>Металл</span></p>
               <div class="price">800&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20d%2020%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="труба металлическая d 25 d 25 мм металл" data-title="Труба металлическая d 25">
-            <div class="thumb"><img src="images/metal/truba-kruglaya.png" alt="Труба металлическая d 25 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-kruglaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба металлическая d 25 d 25 мм металл" data-title="Труба металлическая d 25">
+            <div class="thumb"><img src="images/metal/truba-d25.jpg" alt="Труба металлическая d 25 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-kruglaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-kruglaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба металлическая d 25</h3>
               <p class="desc">Круглого сечения, металлическая. Цена за 1 погонный метр.</p>
               <p class="tags"><span>d 25 мм</span><span>Металл</span></p>
               <div class="price">1 000&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20d%2025%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="труба металлическая d 32 d 32 мм металл" data-title="Труба металлическая d 32">
-            <div class="thumb"><img src="images/metal/truba-kruglaya.png" alt="Труба металлическая d 32 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-kruglaya.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="труба металлическая d 32 d 32 мм металл" data-title="Труба металлическая d 32">
+            <div class="thumb"><img src="images/metal/truba-d32.jpg" alt="Труба металлическая d 32 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/truba-kruglaya.jpg'}else{this.remove()}"><span>Фото: images/metal/truba-kruglaya.jpg</span></div>
             <div class="p-body">
               <h3>Труба металлическая d 32</h3>
               <p class="desc">Круглого сечения, металлическая. Цена за 1 погонный метр.</p>
               <p class="tags"><span>d 32 мм</span><span>Металл</span></p>
               <div class="price">1 300&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A2%D1%80%D1%83%D0%B1%D0%B0%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20d%2032%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
         </div>
@@ -1527,59 +1568,54 @@
       <div class="group" data-cat="armatura" id="armatura">
         <h3 class="group-title">Арматура <small>Цена за 1 погонный метр</small></h3>
         <div class="products">
-          <article class="product reveal" data-name="арматура ø 12 ø 12 мм сталь" data-title="Арматура Ø 12">
-            <div class="thumb"><img src="images/metal/armatura.png" alt="Арматура Ø 12 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="арматура ø 12 ø 12 мм сталь" data-title="Арматура Ø 12">
+            <div class="thumb"><img src="images/metal/armatura-12.jpg" alt="Арматура Ø 12 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span>Фото: images/metal/armatura.jpg</span></div>
             <div class="p-body">
               <h3>Арматура Ø 12</h3>
               <p class="desc">Строительная рифлёная арматура для фундамента. Цена за 1 погонный метр.</p>
               <p class="tags"><span>Ø 12 мм</span><span>Сталь</span></p>
               <div class="price">350&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%90%D1%80%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0%20%C3%98%2012%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="арматура ø 14 ø 14 мм сталь" data-title="Арматура Ø 14">
-            <div class="thumb"><img src="images/metal/armatura.png" alt="Арматура Ø 14 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="арматура ø 14 ø 14 мм сталь" data-title="Арматура Ø 14">
+            <div class="thumb"><img src="images/metal/armatura-14.jpg" alt="Арматура Ø 14 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span>Фото: images/metal/armatura.jpg</span></div>
             <div class="p-body">
               <h3>Арматура Ø 14</h3>
               <p class="desc">Строительная рифлёная арматура для фундамента. Цена за 1 погонный метр.</p>
               <p class="tags"><span>Ø 14 мм</span><span>Сталь</span></p>
               <div class="price">450&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%90%D1%80%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0%20%C3%98%2014%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="арматура ø 16 ø 16 мм сталь" data-title="Арматура Ø 16">
-            <div class="thumb"><img src="images/metal/armatura.png" alt="Арматура Ø 16 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="арматура ø 16 ø 16 мм сталь" data-title="Арматура Ø 16">
+            <div class="thumb"><img src="images/metal/armatura-16.jpg" alt="Арматура Ø 16 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span>Фото: images/metal/armatura.jpg</span></div>
             <div class="p-body">
               <h3>Арматура Ø 16</h3>
               <p class="desc">Строительная рифлёная арматура для фундамента. Цена за 1 погонный метр.</p>
               <p class="tags"><span>Ø 16 мм</span><span>Сталь</span></p>
               <div class="price">560&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%90%D1%80%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0%20%C3%98%2016%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="арматура ø 18 ø 18 мм сталь" data-title="Арматура Ø 18">
-            <div class="thumb"><img src="images/metal/armatura.png" alt="Арматура Ø 18 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="арматура ø 18 ø 18 мм сталь" data-title="Арматура Ø 18">
+            <div class="thumb"><img src="images/metal/armatura-18.jpg" alt="Арматура Ø 18 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span>Фото: images/metal/armatura.jpg</span></div>
             <div class="p-body">
               <h3>Арматура Ø 18</h3>
               <p class="desc">Строительная рифлёная арматура для фундамента. Цена за 1 погонный метр.</p>
               <p class="tags"><span>Ø 18 мм</span><span>Сталь</span></p>
               <div class="price">690&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%90%D1%80%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0%20%C3%98%2018%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="арматура ø 22 ø 22 мм сталь" data-title="Арматура Ø 22">
-            <div class="thumb"><img src="images/metal/armatura.png" alt="Арматура Ø 22 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="арматура ø 22 ø 22 мм сталь" data-title="Арматура Ø 22">
+            <div class="thumb"><img src="images/metal/armatura-22.jpg" alt="Арматура Ø 22 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/armatura.jpg'}else{this.remove()}"><span>Фото: images/metal/armatura.jpg</span></div>
             <div class="p-body">
               <h3>Арматура Ø 22</h3>
               <p class="desc">Строительная рифлёная арматура для фундамента. Цена за 1 погонный метр.</p>
               <p class="tags"><span>Ø 22 мм</span><span>Сталь</span></p>
               <div class="price">900&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%90%D1%80%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0%20%C3%98%2022%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
         </div>
@@ -1587,37 +1623,34 @@
       <div class="group" data-cat="ugolok" id="ugolok">
         <h3 class="group-title">Уголки <small>Цена за 1 погонный метр</small></h3>
         <div class="products">
-          <article class="product reveal" data-name="уголок l 50x50x4 50x50x4 мм металл" data-title="Уголок L 50x50x4">
-            <div class="thumb"><img src="images/metal/ugolok.png" alt="Уголок L 50x50x4 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/ugolok.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="уголок l 50x50x4 50x50x4 мм металл" data-title="Уголок L 50x50x4">
+            <div class="thumb"><img src="images/metal/ugolok-50x50x4.jpg" alt="Уголок L 50x50x4 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/ugolok.jpg'}else{this.remove()}"><span>Фото: images/metal/ugolok.jpg</span></div>
             <div class="p-body">
               <h3>Уголок L 50x50x4</h3>
               <p class="desc">Металлический L-образный профиль. Цена за 1 погонный метр.</p>
               <p class="tags"><span>50x50x4 мм</span><span>Металл</span></p>
               <div class="price">1 500&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A3%D0%B3%D0%BE%D0%BB%D0%BE%D0%BA%20L%2050x50x4%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="уголок l 75x75x5 75x75x5 мм металл" data-title="Уголок L 75x75x5">
-            <div class="thumb"><img src="images/metal/ugolok.png" alt="Уголок L 75x75x5 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/ugolok.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="уголок l 75x75x5 75x75x5 мм металл" data-title="Уголок L 75x75x5">
+            <div class="thumb"><img src="images/metal/ugolok-75x75x5.jpg" alt="Уголок L 75x75x5 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/ugolok.jpg'}else{this.remove()}"><span>Фото: images/metal/ugolok.jpg</span></div>
             <div class="p-body">
               <h3>Уголок L 75x75x5</h3>
               <p class="desc">Металлический L-образный профиль. Цена за 1 погонный метр.</p>
               <p class="tags"><span>75x75x5 мм</span><span>Металл</span></p>
               <div class="price">3 200&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A3%D0%B3%D0%BE%D0%BB%D0%BE%D0%BA%20L%2075x75x5%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="уголок l 100x100 100x100 мм металл" data-title="Уголок L 100x100">
-            <div class="thumb"><img src="images/metal/ugolok.png" alt="Уголок L 100x100 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/ugolok.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="уголок l 100x100 100x100 мм металл" data-title="Уголок L 100x100">
+            <div class="thumb"><img src="images/metal/ugolok-100x100.jpg" alt="Уголок L 100x100 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/ugolok.jpg'}else{this.remove()}"><span>Фото: images/metal/ugolok.jpg</span></div>
             <div class="p-body">
               <h3>Уголок L 100x100</h3>
               <p class="desc">Металлический L-образный профиль. Цена за 1 погонный метр.</p>
               <p class="tags"><span>100x100 мм</span><span>Металл</span></p>
               <div class="price">4 500&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%A3%D0%B3%D0%BE%D0%BB%D0%BE%D0%BA%20L%20100x100%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
         </div>
@@ -1625,26 +1658,24 @@
       <div class="group" data-cat="katanka" id="katanka">
         <h3 class="group-title">Катанка <small>Цена за 1 погонный метр</small></h3>
         <div class="products">
-          <article class="product reveal" data-name="катанка 6 6 мм сталь" data-title="Катанка 6">
-            <div class="thumb"><img src="images/metal/katanka.png" alt="Катанка 6 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/katanka.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="катанка 6 6 мм сталь" data-title="Катанка 6">
+            <div class="thumb"><img src="images/metal/katanka-6.jpg" alt="Катанка 6 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/katanka.jpg'}else{this.remove()}"><span>Фото: images/metal/katanka.jpg</span></div>
             <div class="p-body">
               <h3>Катанка 6</h3>
               <p class="desc">Стальная проволока круглого сечения. Цена за 1 погонный метр.</p>
               <p class="tags"><span>6 мм</span><span>Сталь</span></p>
               <div class="price">120&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%9A%D0%B0%D1%82%D0%B0%D0%BD%D0%BA%D0%B0%206%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="катанка 8 8 мм сталь" data-title="Катанка 8">
-            <div class="thumb"><img src="images/metal/katanka.png" alt="Катанка 8 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/katanka.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="м" class="product reveal" data-name="катанка 8 8 мм сталь" data-title="Катанка 8">
+            <div class="thumb"><img src="images/metal/katanka-8.jpg" alt="Катанка 8 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/katanka.jpg'}else{this.remove()}"><span>Фото: images/metal/katanka.jpg</span></div>
             <div class="p-body">
               <h3>Катанка 8</h3>
               <p class="desc">Стальная проволока круглого сечения. Цена за 1 погонный метр.</p>
               <p class="tags"><span>8 мм</span><span>Сталь</span></p>
               <div class="price">170&nbsp;₸ <small>/ п.м.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%9A%D0%B0%D1%82%D0%B0%D0%BD%D0%BA%D0%B0%208%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
         </div>
@@ -1652,26 +1683,24 @@
       <div class="group" data-cat="list" id="list">
         <h3 class="group-title">Листы <small>Цена за т.л. (тонна-лист или лист), уточняйте</small></h3>
         <div class="products">
-          <article class="product reveal" data-name="лист 1x2000x2 1x2000x2 мм металл" data-title="Лист 1x2000x2">
-            <div class="thumb"><img src="images/metal/list.png" alt="Лист 1x2000x2 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/list.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="шт" class="product reveal" data-name="лист 1x2000x2 1x2000x2 мм металл" data-title="Лист 1x2000x2">
+            <div class="thumb"><img src="images/metal/list-1x2000x2.jpg" alt="Лист 1x2000x2 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/list.jpg'}else{this.remove()}"><span>Фото: images/metal/list.jpg</span></div>
             <div class="p-body">
               <h3>Лист 1x2000x2</h3>
               <p class="desc">Металлический лист горячекатаный. Цена указана за т.л. (тонна-лист или за лист), единицу уточняйте.</p>
               <p class="tags"><span>1x2000x2 мм</span><span>Металл</span></p>
               <div class="price">18 000&nbsp;₸ <small>/ т.л.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%9B%D0%B8%D1%81%D1%82%201x2000x2%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
-          <article class="product reveal" data-name="лист 1x2000x3 1x2000x3 мм металл" data-title="Лист 1x2000x3">
-            <div class="thumb"><img src="images/metal/list.png" alt="Лист 1x2000x3 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/list.jpg'}else{this.remove()}"><span></span></div>
+          <article data-unit="шт" class="product reveal" data-name="лист 1x2000x3 1x2000x3 мм металл" data-title="Лист 1x2000x3">
+            <div class="thumb"><img src="images/metal/list-1x2000x3.jpg" alt="Лист 1x2000x3 — Косшы" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/metal/list.jpg'}else{this.remove()}"><span>Фото: images/metal/list.jpg</span></div>
             <div class="p-body">
               <h3>Лист 1x2000x3</h3>
               <p class="desc">Металлический лист горячекатаный. Цена указана за т.л. (тонна-лист или за лист), единицу уточняйте.</p>
               <p class="tags"><span>1x2000x3 мм</span><span>Металл</span></p>
               <div class="price">20 000&nbsp;₸ <small>/ т.л.</small></div>
               <a class="wa-btn" href="https://wa.me/77754479913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%AB%D0%9B%D0%B8%D1%81%D1%82%201x2000x3%C2%BB.%20%D0%95%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8%20%D0%B8%20%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%3F" target="_blank" rel="noopener">Узнать наличие и цену</a>
-              <button class="add-btn" type="button">+ Добавить в список</button>
             </div>
           </article>
         </div>
@@ -1700,7 +1729,7 @@
       </div>
       <div class="steps">
         <div class="step reveal"><h3>Выберите профиль</h3><p>Найдите нужный размер в каталоге, через поиск или по разделам.</p></div>
-        <div class="step reveal"><h3>Узнайте наличие и цену</h3><p>Нажмите кнопку на карточке или отметьте несколько позиций. Укажите нужную длину или количество в WhatsApp.</p></div>
+        <div class="step reveal"><h3>Узнайте наличие и цену</h3><p>Нажмите кнопку на карточке или добавьте позиции в корзину, выберите метры или штуки и отправьте список в WhatsApp.</p></div>
         <div class="step reveal"><h3>Заберите или закажите доставку</h3><p>Приезжайте в Косшы, ул. Кобыланды батыра, 81, или уточните условия доставки.</p></div>
       </div>
     </div>
@@ -1714,14 +1743,14 @@
       <details class="faq-item reveal"><summary>Где купить металл в Косшы?</summary><p>Трубы, арматуру, уголки, катанку и листы продаёт строительный магазин «Олжа» по адресу: Косшы, ул. Кобыланды батыра, 81. Работаем ежедневно с 09:00 до 21:00.</p></details>
       <details class="faq-item reveal"><summary>Какие металлопрокат и профили есть в магазине?</summary><p>Профильные трубы (40x20, 40x40, 60x60, 80x80, 100x100), круглые металлические трубы d 15–32 мм, рифлёная арматура Ø 12–22 мм, уголки L 50–100 мм, катанка 6 и 8 мм и горячекатаные листы.</p></details>
       <details class="faq-item reveal"><summary>Как указана цена: за метр или за штуку?</summary><p>Цены на трубы, арматуру, уголки и катанку указаны за 1 погонный метр (п.м.). Цена листов указана в т.л. (тонна-лист или за лист), единицу цены уточняйте при запросе.</p></details>
-      <details class="faq-item reveal"><summary>Как узнать наличие и цену?</summary><p>Нажмите на карточке кнопку «Узнать наличие и цену»: откроется WhatsApp с готовым сообщением. Если нужно несколько позиций, отметьте их кнопкой «Добавить в список» и отправьте один запрос. Можно также позвонить по телефону +7 775 447 9913.</p></details>
+      <details class="faq-item reveal"><summary>Как узнать наличие и цену?</summary><p>Нажмите на карточке кнопку «Узнать наличие и цену»: откроется WhatsApp с готовым сообщением. Если нужно несколько позиций, добавьте их в корзину кнопкой «В корзину», выберите количество и отправьте корзину одним сообщением в WhatsApp. Можно также позвонить по телефону +7 775 447 9913.</p></details>
       <details class="faq-item reveal"><summary>Есть ли доставка?</summary><p>Да, в магазине есть услуга доставки. Стоимость, сроки и условия зависят от товара и адреса, поэтому их нужно уточнять: напишите в WhatsApp или позвоните по телефону +7 775 447 9913.</p></details>
       </div>
     </div>
   </section>
 
   <!-- ============ 5. КОНТАКТЫ (жёлтый) ============ -->
-  <section class="band band-yellow">
+  <section class="band band-accent">
     <div class="wrap">
       <div class="reveal">
         <h2>Приходите или пишите</h2>
@@ -1776,19 +1805,13 @@
           <a href="#contacts">Контакты</a>
           <a href="#address">Адрес</a>
           <a href="#hours">Время работы</a>
+          <a href="https://2gis.kz/search/%D0%9E%D0%BB%D0%B6%D0%B0%20%D0%9A%D0%BE%D1%81%D1%88%D1%8B%20%D0%9A%D0%BE%D0%B1%D1%8B%D0%BB%D0%B0%D0%BD%D0%B4%D1%8B%20%D0%B1%D0%B0%D1%82%D1%8B%D1%80%D0%B0%2081" data-2gis-review target="_blank" rel="noopener">Оставить отзыв</a>
         </nav>
       </footer>
     </div>
   </section>
 
 </main>
-
-<!-- Панель «Мой список» -->
-<div class="req-bar" id="reqBar" role="status">
-  <span>Выбрано: <b id="reqCount">0</b></span>
-  <a class="req-send wa-link" id="reqSend" href="#" target="_blank" rel="noopener">Отправить список в WhatsApp</a>
-  <button class="req-clear" id="reqClear" type="button">Очистить</button>
-</div>
 
 <script>
   const burger = document.getElementById('burger');
@@ -1892,35 +1915,6 @@
     input.addEventListener('input', apply);
   })();
 
-  // Список позиций: отметить несколько и отправить одним сообщением в WhatsApp
-  (function () {
-    const bar = document.getElementById('reqBar');
-    const count = document.getElementById('reqCount');
-    const send = document.getElementById('reqSend');
-    const clear = document.getElementById('reqClear');
-    const chosen = new Set();
-    function update() {
-      count.textContent = chosen.size;
-      bar.classList.toggle('show', chosen.size > 0);
-      const lines = [...chosen].map(n => '— ' + n).join('\n');
-      const text = 'Здравствуйте! Интересует:\n' + lines + '\nЕсть ли в наличии и сколько стоит?';
-      send.href = 'https://wa.me/77754479913?text=' + encodeURIComponent(text);
-    }
-    document.querySelectorAll('.add-btn').forEach(b => b.addEventListener('click', () => {
-      const title = b.closest('.product').dataset.title;
-      const on = !chosen.has(title);
-      on ? chosen.add(title) : chosen.delete(title);
-      b.classList.toggle('on', on);
-      b.textContent = on ? '✓ В списке' : '+ Добавить в список';
-      update();
-    }));
-    clear.addEventListener('click', () => {
-      chosen.clear();
-      document.querySelectorAll('.add-btn').forEach(b => { b.classList.remove('on'); b.textContent = '+ Добавить в список'; });
-      update();
-    });
-  })();
-
   // Плавное раскрытие вопросов
   (function () {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1950,5 +1944,6 @@
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+<script src="cart.js" defer></script>
 </body>
 </html>
