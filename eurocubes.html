@@ -607,6 +607,15 @@
   /* Короткая «балка» под заголовками разделов */
   h2::after { content: ""; display: block; width: 72px; height: 6px; margin-top: 14px; background: var(--accent); border-radius: 2px; }
   .cta-end h2::after { margin: 14px auto 0; background: var(--ink); }
+
+  /* ---------- Меню ассортимента: метки «Скоро» ---------- */
+  .dd-menu a.is-soon { opacity: .6; }
+  .dd-menu a.is-soon:hover { opacity: 1; }
+  .m-sub a.is-soon { color: #fff; opacity: .6; }
+  .has-dd.open > .m-sub { max-height: 1100px; }
+  .card .thumb .tag { position: absolute; top: 10px; right: 10px; z-index: 2; font: 700 11px var(--body); padding: 5px 11px; border-radius: 999px; }
+  .card .thumb .tag.ready { background: var(--accent); color: var(--ink); }
+  .card .thumb .tag.soon { background: rgba(20,20,20,.72); color: #fff; }
 </style>
 <script type="application/ld+json">
 {
@@ -795,19 +804,25 @@
   <ul class="nav-links">
     <li class="has-dd" id="ddDesktop">
       <button class="dd-toggle" type="button" aria-expanded="false">Наш ассортимент</button>
-      <ul class="dd-menu">
-        <li><a href="eurocubes.html">Еврокубы и разные емкости</a></li>
-        <li><a href="https://olzhastroymarket.kz/arenda.html">Прокат инструментов</a></li>
-        <li><a href="metal.html">Металлы</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Клеи, герметики и монтажная пена</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Автоакссесуары</a></li>
-        <li><a href="sukhie-smesi.html">Сухие смеси</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Инструменты</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Сантехника</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Все для отопительной системы</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Краски и лаки</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Крепежные материалы</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Гипсокартон и комплектующие</a></li>
+      <ul class="dd-menu" data-sections>
+        <li><a href="eurocubes.html" data-section="Еврокубы и разные емкости">Еврокубы и разные емкости</a></li>
+        <li><a href="arenda.html" data-section="Прокат инструментов">Прокат инструментов</a></li>
+        <li><a href="metal.html" data-section="Металлы">Металлы</a></li>
+        <li><a href="sukhie-smesi.html" data-section="Сухие смеси">Сухие смеси</a></li>
+        <li><a href="#" data-section="Все для дома">Все для дома</a></li>
+        <li><a href="#" data-section="Электротовары">Электротовары</a></li>
+        <li><a href="#" data-section="Клеи, герметики и монтажная пена">Клеи, герметики и монтажная пена</a></li>
+        <li><a href="#" data-section="Автоаксессуары">Автоаксессуары</a></li>
+        <li><a href="#" data-section="Инструменты">Инструменты</a></li>
+        <li><a href="#" data-section="Сантехника">Сантехника</a></li>
+        <li><a href="#" data-section="Все для отопительной системы">Все для отопительной системы</a></li>
+        <li><a href="#" data-section="Краски и лаки">Краски и лаки</a></li>
+        <li><a href="#" data-section="Крепежные материалы">Крепежные материалы</a></li>
+        <li><a href="#" data-section="Гипсокартон и комплектующие">Гипсокартон и комплектующие</a></li>
+        <li><a href="#" data-section="Электроводонагреватель">Электроводонагреватель</a></li>
+        <li><a href="#" data-section="Водоснабжение">Водоснабжение</a></li>
+        <li><a href="#" data-section="Вентиляция">Вентиляция</a></li>
+        <li><a href="#" data-section="Строительный инвентарь">Строительный инвентарь</a></li>
       </ul>
     </li>
     <li><a href="#contacts">Контакты</a></li>
@@ -825,19 +840,25 @@
   <ul class="mobile-menu" id="mobileMenu">
     <li class="has-dd" id="ddMobile">
       <button class="dd-toggle" type="button" aria-expanded="false">Наш ассортимент</button>
-      <ul class="m-sub">
-        <li><a href="eurocubes.html">Еврокубы и разные емкости</a></li>
-        <li><a href="https://olzhastroymarket.kz/arenda.html">Прокат инструментов</a></li>
-        <li><a href="metal.html">Металлы</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Клеи, герметики и монтажная пена</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Автоакссесуары</a></li>
-        <li><a href="sukhie-smesi.html">Сухие смеси</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Инструменты</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Сантехника</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Все для отопительной системы</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Краски и лаки</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Крепежные материалы</a></li>
-        <li><a href="https://olzhastroymarket.kz/#">Гипсокартон и комплектующие</a></li>
+      <ul class="m-sub" data-sections>
+        <li><a href="eurocubes.html" data-section="Еврокубы и разные емкости">Еврокубы и разные емкости</a></li>
+        <li><a href="arenda.html" data-section="Прокат инструментов">Прокат инструментов</a></li>
+        <li><a href="metal.html" data-section="Металлы">Металлы</a></li>
+        <li><a href="sukhie-smesi.html" data-section="Сухие смеси">Сухие смеси</a></li>
+        <li><a href="#" data-section="Все для дома">Все для дома</a></li>
+        <li><a href="#" data-section="Электротовары">Электротовары</a></li>
+        <li><a href="#" data-section="Клеи, герметики и монтажная пена">Клеи, герметики и монтажная пена</a></li>
+        <li><a href="#" data-section="Автоаксессуары">Автоаксессуары</a></li>
+        <li><a href="#" data-section="Инструменты">Инструменты</a></li>
+        <li><a href="#" data-section="Сантехника">Сантехника</a></li>
+        <li><a href="#" data-section="Все для отопительной системы">Все для отопительной системы</a></li>
+        <li><a href="#" data-section="Краски и лаки">Краски и лаки</a></li>
+        <li><a href="#" data-section="Крепежные материалы">Крепежные материалы</a></li>
+        <li><a href="#" data-section="Гипсокартон и комплектующие">Гипсокартон и комплектующие</a></li>
+        <li><a href="#" data-section="Электроводонагреватель">Электроводонагреватель</a></li>
+        <li><a href="#" data-section="Водоснабжение">Водоснабжение</a></li>
+        <li><a href="#" data-section="Вентиляция">Вентиляция</a></li>
+        <li><a href="#" data-section="Строительный инвентарь">Строительный инвентарь</a></li>
       </ul>
     </li>
     <li><a href="#contacts">Контакты</a></li>
@@ -1165,6 +1186,9 @@
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+<script src="config.js"></script>
 <script src="cart.js" defer></script>
+<script src="soon.js" defer></script>
+<script src="fx.js" defer></script>
 </body>
 </html>
