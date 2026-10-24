@@ -1,0 +1,209 @@
+/* =====================================================================
+   ТЕМА: тёмно-синий + оранжевый + белый
+   - Шапка и подвал тёмно-синие, всё остальное светлое (белый каталог)
+   - Оранжевый только для главного: кнопки, цены, выделения
+   Подключается на всех страницах после основных стилей.
+   Цвета меняются в блоке :root ниже.
+   ===================================================================== */
+
+:root {
+  --navy: #0b2447;           /* тёмно-синий: шапка, подвал, заголовки */
+  --navy-2: #13315f;
+  --navy-3: #1d4580;
+  --ink: #0b2447;            /* заголовки, тёмные кнопки */
+  --text: #334155;           /* обычный текст */
+  --accent: #ff7a1a;         /* яркий оранжевый для кнопок */
+  --accent-hover: #ff8f3d;
+  --accent-text: #c2410c;    /* оранжевый для текста на белом (читается лучше) */
+  --accent-soft: #fff0e3;
+  --muted: #64748b;
+  --bg-soft: #f4f7fb;        /* светло-голубой фон чередующихся блоков */
+  --line: rgba(11, 36, 71, .10);
+  --paper: #ffffff;
+  --concrete-1: #ffffff;
+  --concrete-2: #f4f7fb;
+  --shadow: 0 1px 2px rgba(11, 36, 71, .05), 0 14px 34px rgba(11, 36, 71, .08);
+  --shadow-hover: 0 2px 4px rgba(11, 36, 71, .06), 0 26px 54px rgba(11, 36, 71, .15);
+}
+
+body { background: #fff; color: var(--text); }
+.lead { opacity: 1; color: #475569; }
+
+/* ---------- Меню: белая таблетка на тёмно-синей шапке ---------- */
+.navbar {
+  background: rgba(255, 255, 255, .94);
+  -webkit-backdrop-filter: saturate(1.4) blur(16px);
+  backdrop-filter: saturate(1.4) blur(16px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .5), 0 12px 36px rgba(5, 18, 40, .28);
+}
+.tagline { color: var(--muted); opacity: 1; }
+.nav-links a, .nav-links .dd-toggle { color: var(--ink); opacity: 1; }
+.nav-links > li > a:hover, .nav-links .dd-toggle:hover,
+.nav-links a:focus-visible, .nav-links .dd-toggle:focus-visible { color: var(--accent-text); }
+.dd-menu { background: #fff; box-shadow: 0 0 0 1px var(--line), 0 24px 60px rgba(11, 36, 71, .22); }
+.dd-menu a:hover { background: var(--accent-soft); color: var(--ink); }
+.dd-menu a.is-soon { opacity: .55; }
+.dd-menu a.is-soon:hover { opacity: 1; }
+.burger { color: var(--ink); }
+.mobile-menu { background: #fff; box-shadow: 0 0 0 1px var(--line), 0 24px 60px rgba(11, 36, 71, .22); }
+.mobile-menu a, .mobile-menu .dd-toggle { color: var(--ink); }
+.m-sub a { color: var(--accent-text); }
+.m-sub a.is-soon { color: var(--muted); opacity: 1; }
+
+/* Логотип: место под значок + надпись «ОЛЖА» */
+.brand { gap: 10px; }
+.brand-icon {
+  position: relative; display: block; flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; overflow: hidden;
+  background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23ff7a1a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 30V17l12-8 12 8v13z'/%3E%3Cpath d='M16 30v-8h8v8'/%3E%3C/g%3E%3C/svg%3E") center / 26px no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255, 122, 26, .25);
+}
+.brand-icon img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #fff; }
+.logo { background: var(--accent); color: var(--navy); }
+@media (max-width: 520px) { .brand-icon { width: 36px; height: 36px; border-radius: 10px; } .brand { gap: 8px; } }
+
+/* ---------- Кнопки: оранжевые для главного ---------- */
+.btn-accent { background: var(--accent); color: var(--navy); box-shadow: 0 12px 26px rgba(255, 122, 26, .38); }
+.btn-accent:hover { background: var(--accent-hover); }
+.btn-dark { background: var(--navy); color: #fff; }
+.btn-line { color: var(--navy); box-shadow: inset 0 0 0 2px rgba(11, 36, 71, .8); }
+
+/* ---------- ШАПКА: тёмно-синий экран с мягкой сеткой и оранжевым свечением ---------- */
+.band-hero {
+  margin-top: -88px; padding-top: 88px !important; padding-bottom: 70px; color: #fff;
+  border-radius: 0 0 48px 48px;
+  background:
+    radial-gradient(900px 520px at 88% 0%, rgba(255, 122, 26, .24), transparent 62%),
+    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(160deg, #0b2447 0%, #12305f 62%, #1b4a8c 125%);
+}
+@media (max-width: 860px) { .band-hero { margin-top: -80px; padding-top: 80px !important; border-radius: 0 0 32px 32px; } }
+.band-hero .lead { color: rgba(255, 255, 255, .84); }
+.band-hero .crumbs, .band-hero .crumbs a { color: #fff; }
+.band-hero .scroll-cue { color: #fff; }
+.band-hero .btn-line { color: #fff; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .7); }
+.band-hero .btn-line:hover { background: rgba(255, 255, 255, .1); }
+
+/* Плашка с режимом работы: белая карточка на синем */
+.sign { background: #fff; color: var(--ink); border: 0; box-shadow: 0 30px 60px rgba(3, 12, 30, .4); }
+.sign .tape { height: 6px; background: var(--accent); }
+.status { background: #eef3fa; }
+.sign small { color: var(--muted); opacity: 1; }
+.sign .big { color: var(--accent-text); }
+.delivery .tape, .cta-end .tape { display: none; }
+
+/* ---------- Светлые блоки ---------- */
+.band-dark  { background: #fff; color: var(--ink); }
+.band-sand  { background: var(--bg-soft); color: var(--ink); }
+.band-steel { background: #fff; color: var(--ink); }
+.band-accent { background: var(--bg-soft); color: var(--ink); }
+.band-accent .lead { opacity: 1; }
+
+/* ---------- ПОДВАЛ: снова тёмно-синий ---------- */
+.band-black {
+  color: #fff;
+  background:
+    radial-gradient(700px 420px at 12% 100%, rgba(255, 122, 26, .16), transparent 62%),
+    linear-gradient(200deg, #12305f 0%, #0b2447 70%);
+}
+.band-black .lead { color: rgba(255, 255, 255, .8); }
+footer { border-top: 1px solid rgba(255, 255, 255, .18); }
+footer span { opacity: 1; color: rgba(255, 255, 255, .72); }
+footer a { opacity: 1; color: rgba(255, 255, 255, .72); }
+footer a:hover { color: var(--accent); }
+
+/* ---------- Карточки разделов (главная) ---------- */
+.card {
+  background: #fff; color: var(--ink); border: 1px solid var(--line);
+  box-shadow: var(--shadow); border-radius: 24px;
+}
+.card::before, .product::before { display: none; }
+.thumb { background: linear-gradient(135deg, #f0f4fa, #e1e9f4); color: #8a99b0; }
+.card:hover { background: #fff; color: var(--ink); box-shadow: var(--shadow-hover); border-color: rgba(255, 122, 26, .6); }
+.card i { background: var(--accent); }
+.card .thumb .tag.soon { background: rgba(255, 255, 255, .94); color: var(--muted); box-shadow: 0 0 0 1px var(--line); }
+.card .thumb .tag.ready { background: var(--accent); color: var(--navy); }
+
+/* ---------- Карточки товаров ---------- */
+.product {
+  background: #fff; color: var(--ink); border: 1px solid var(--line);
+  box-shadow: var(--shadow); border-radius: 24px;
+  transition: box-shadow .25s, transform .25s;
+}
+.product:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.product .thumb { background: linear-gradient(135deg, #f6f9fd, #e8eef7); border-bottom: 1px solid var(--line); }
+.product .thumb span { color: #8a99b0; }
+.price { color: var(--accent-text); }
+.price small { color: var(--muted); opacity: 1; }
+.spec, .desc { opacity: 1; color: var(--muted); }
+.tags span { box-shadow: inset 0 0 0 1px rgba(11, 36, 71, .18); color: var(--ink); }
+.wa-btn { background: var(--accent); color: var(--navy); box-shadow: 0 10px 22px rgba(255, 122, 26, .32); }
+.wa-btn:hover { background: var(--navy); color: #fff; }
+.vol { background: var(--accent); color: var(--navy); }
+
+/* ---------- Прокат ---------- */
+.rent {
+  background: #fff; color: var(--ink); border: 1px solid var(--line);
+  border-left: 6px solid var(--accent); box-shadow: var(--shadow);
+}
+.rent-price { background: var(--accent); color: var(--navy); }
+
+/* ---------- Поиск, фильтры, сортировка ---------- */
+.chip { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.chip:hover { background: var(--accent-soft); }
+.chip.active { background: var(--navy); color: #fff; box-shadow: none; }
+.search, .sort { background: #fff; box-shadow: 0 0 0 1px var(--line), 0 4px 14px rgba(11, 36, 71, .06); }
+.search:focus, .sort:focus { border-color: var(--accent); }
+.note, .count { opacity: 1; color: var(--muted); }
+.group-title small { color: var(--muted); opacity: 1; }
+.empty { color: var(--ink); }
+.empty a { color: var(--accent-text); }
+
+/* ---------- Вопросы и шаги ---------- */
+.faq-item { background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.faq-item p { opacity: 1; color: #475569; }
+.faq-item summary::after { color: var(--accent-text); }
+.step { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.step p { opacity: 1; color: #475569; }
+.step::before { background: var(--accent); color: var(--navy); }
+
+/* ---------- Доставка и финальный блок: оранжевые ---------- */
+.delivery { background: linear-gradient(135deg, #ff9a45, #ff7a1a); color: var(--navy); box-shadow: 0 18px 40px rgba(255, 122, 26, .3); }
+.cta-end { background: linear-gradient(135deg, #ff9a45, #ff7a1a); color: var(--navy); box-shadow: 0 28px 70px rgba(3, 12, 30, .45); }
+.cta-end h2::after { background: var(--navy); }
+
+/* ---------- Контакты ---------- */
+.panel { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--accent); box-shadow: var(--shadow); }
+.links a { background: #eef3fa; color: var(--ink); }
+.links a:hover { background: var(--accent); color: var(--navy); }
+
+/* ---------- Отзывы ---------- */
+.review { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.review p { opacity: 1; color: #475569; }
+.source { background: #eef3fa; color: var(--muted); }
+.stars { color: #f5a300; }
+.rev-nav .circle-btn { background: var(--navy); }
+.rev-nav .circle-btn::after { border-color: #fff; }
+
+/* ---------- Фото магазина ---------- */
+.slides { background: #e5ecf6; }
+.slide { color: #8a99b0; }
+.photo-frame::before { background: linear-gradient(135deg, #cfe0f7, #a9c4ec); }
+.circle-btn { background: var(--accent); }
+.circle-btn::after { border-color: var(--navy); }
+
+/* ---------- Кнопки с иконкой слева (иконки кладёте вы в images/icons/) ---------- */
+.links a { display: flex; align-items: center; gap: 12px; }
+.btn.has-ico { display: inline-flex; align-items: center; gap: 10px; }
+.ico {
+  position: relative; flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; overflow: hidden;
+  background: rgba(11, 36, 71, .08); box-shadow: inset 0 0 0 1px rgba(11, 36, 71, .14);
+}
+.ico img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 3px; background: #fff; }
+.links a:hover .ico { background: rgba(255, 255, 255, .6); }
+.btn .ico { width: 26px; height: 26px; background: rgba(255, 255, 255, .85); box-shadow: none; }
+.rev-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+
+/* встроенная иконка WhatsApp в кнопке «WhatsApp» (блок «Контакты») */
+.ico.wa-builtin { background: #25d366; box-shadow: none; color: #fff; }
+.ico.wa-builtin svg { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); }
