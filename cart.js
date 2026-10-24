@@ -33,7 +33,8 @@
       state = {
         items: items
           .filter(i => i && typeof i.id === 'string' && typeof i.name === 'string' && isFinite(i.qty))
-          .map(i => ({ id: i.id, name: i.name, unit: String(i.unit || 'шт'), qty: clamp(i.qty) })),
+          .map(i => ({ id: i.id, name: i.name, unit: String(i.unit || 'шт'), qty: clamp(i.qty),
+                       price: (i.price === null || i.price === undefined || !isFinite(i.price)) ? null : +i.price })),
         note: typeof data.note === 'string' ? data.note : ''
       };
     } catch (e) { /* хранилище недоступно: работаем только в памяти */ }
@@ -48,13 +49,14 @@
     return v > MAX_QTY ? MAX_QTY : v;
   }
   const find = id => state.items.find(i => i.id === id);
+  const money = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + '\u00a0₸';
 
   /* ---------- Стили ---------- */
   const css = `
   .qty { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px;
-         box-shadow: inset 0 0 0 2px var(--qb, rgba(255,255,255,.3)); flex-shrink: 0; }
+         box-shadow: inset 0 0 0 2px var(--qb, rgba(22,24,29,.2)); flex-shrink: 0; }
   .qty button { width: 30px; height: 30px; border-radius: 50%; border: 0; cursor: pointer;
-         background: var(--qbg, rgba(255,255,255,.14)); color: inherit; font: 700 18px/1 var(--body, sans-serif); padding: 0; }
+         background: var(--qbg, rgba(22,24,29,.07)); color: inherit; font: 700 18px/1 var(--body, sans-serif); padding: 0; }
   .qty button:hover { background: var(--accent, #f26a1b); color: var(--ink, #141414); }
   .qty input { width: 46px; text-align: center; background: transparent; border: 0; color: inherit; padding: 0;
          font: 700 14px var(--body, sans-serif); -moz-appearance: textfield; appearance: textfield; }
@@ -64,11 +66,11 @@
 
   .cart-row { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 8px; }
   .cart-row + .wa-btn { margin-top: 8px !important; }
-  .cart-add { flex: 1; min-width: 0; cursor: pointer; padding: 11px 10px; border-radius: 999px; background: transparent; color: #fff;
-         border: 2px solid rgba(255,255,255,.35); font: 700 12px/1.2 var(--body, sans-serif);
+  .cart-add { flex: 1; min-width: 0; cursor: pointer; padding: 11px 10px; border-radius: 999px; background: transparent; color: var(--ink, #16181d);
+         border: 2px solid rgba(22,24,29,.22); font: 700 12px/1.2 var(--body, sans-serif);
          transition: background .2s, color .2s, border-color .2s; }
-  .cart-add:hover { border-color: var(--accent, #f26a1b); color: var(--accent, #f26a1b); }
-  .cart-add.in-cart { background: #fff; color: var(--ink, #141414); border-color: #fff; }
+  .cart-add:hover { border-color: var(--accent, #f26a1b); color: var(--accent-text, #cf4f06); }
+  .cart-add.in-cart { background: var(--ink, #16181d); color: #fff; border-color: var(--ink, #16181d); }
 
   .cart-fab { position: fixed; right: 18px; bottom: 18px; z-index: 80; display: none; align-items: center; gap: 10px;
          padding: 12px 18px 12px 16px; border-radius: 999px; cursor: pointer;
@@ -117,6 +119,13 @@
          border: 2px solid rgba(20,20,20,.15); background: var(--paper, #f7f6f2); color: inherit; font: 500 13px/1.4 var(--body, sans-serif); }
   .cd-foot textarea:focus { outline: none; border-color: var(--accent, #f26a1b); }
   .cd-total { margin: 12px 0; font: 600 13px var(--body, sans-serif); }
+  .cd-priceline { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 0 0 10px; font: 600 13px var(--body, sans-serif); }
+  .cd-up small { opacity: .65; font-weight: 600; }
+  .cd-sum { font: 700 18px var(--head, sans-serif); }
+  .cd-est { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; margin: 12px 0 2px; font: 600 13px var(--body, sans-serif); }
+  .cd-est b { font: 700 26px var(--head, sans-serif); }
+  .cd-est small, .cd-noprice { flex-basis: 100%; font-size: 11px; opacity: .65; font-weight: 500; line-height: 1.4; }
+  .cd-noprice { margin-bottom: 6px; }
   .cd-send { display: block; text-align: center; padding: 15px 20px; border-radius: 999px; text-decoration: none;
          background: var(--accent, #f26a1b); color: var(--ink, #141414); font: 700 14px var(--body, sans-serif); transition: transform .15s; }
   .cd-send:hover { transform: translateY(-2px); }
@@ -213,6 +222,8 @@
     '<div class="cd-foot">' +
       '<label for="cdNote">Комментарий или адрес доставки (необязательно)</label>' +
       '<textarea id="cdNote" maxlength="300" placeholder="Например: нужна доставка, улица и дом"></textarea>' +
+      '<div class="cd-est" id="cdEstBox" hidden><span>Ориентировочно:</span><b id="cdEst">0&nbsp;₸</b><small>Считаем по прайсу сайта. Точную сумму и условия подтвердим в WhatsApp.</small></div>' +
+      '<p class="cd-noprice" id="cdNoPrice" hidden>Позиции без цены в сумму не входят: цену по ним подтвердим в WhatsApp.</p>' +
       '<div class="cd-total">Позиций в корзине: <b id="cdCount">0</b></div>' +
       '<a class="cd-send disabled" id="cdSend" href="#" target="_blank" rel="noopener">Отправить корзину в WhatsApp</a>' +
       '<button type="button" class="cd-clear">Очистить корзину</button>' +
@@ -221,6 +232,9 @@
   const list = drawer.querySelector('#cdList');
   const note = drawer.querySelector('#cdNote');
   const countEl = drawer.querySelector('#cdCount');
+  const estBox = drawer.querySelector('#cdEstBox');
+  const estEl = drawer.querySelector('#cdEst');
+  const noPriceEl = drawer.querySelector('#cdNoPrice');
   const sendBtn = drawer.querySelector('#cdSend');
   let lastFocus = null;
 
@@ -273,7 +287,30 @@
       name.textContent = it.name;
       const ctl = document.createElement('div');
       ctl.className = 'cd-ctl';
-      const q = makeQty(it.unit, it.qty, v => { it.qty = v; save(); syncCards(); updateSend(); });
+      const priceLine = document.createElement('div');
+      priceLine.className = 'cd-priceline';
+      const up = document.createElement('span');
+      up.className = 'cd-up';
+      const sum = document.createElement('b');
+      sum.className = 'cd-sum';
+      if (it.price !== null && it.price !== undefined) {
+        up.appendChild(document.createTextNode(money(it.price) + ' '));
+        const u = document.createElement('small');
+        u.textContent = '/ ' + it.unit;
+        up.appendChild(u);
+        sum.textContent = money(it.price * it.qty);
+      } else {
+        const u = document.createElement('small');
+        u.textContent = 'Цена по запросу';
+        up.appendChild(u);
+      }
+      priceLine.appendChild(up);
+      priceLine.appendChild(sum);
+      const q = makeQty(it.unit, it.qty, v => {
+        it.qty = v; save();
+        if (it.price !== null && it.price !== undefined) sum.textContent = money(it.price * it.qty);
+        syncCards(); updateSend();
+      });
       const rm = document.createElement('button');
       rm.type = 'button';
       rm.className = 'cd-rm';
@@ -282,6 +319,7 @@
       ctl.appendChild(q.el);
       ctl.appendChild(rm);
       row.appendChild(name);
+      row.appendChild(priceLine);
       row.appendChild(ctl);
       list.appendChild(row);
     });
@@ -294,6 +332,11 @@
     countEl.textContent = n;
     badge.textContent = n;
     badge.hidden = n === 0;
+    let est = 0, priced = 0;
+    state.items.forEach(it => { if (it.price !== null && it.price !== undefined) { est += it.price * it.qty; priced++; } });
+    estBox.hidden = priced === 0;
+    estEl.textContent = money(est);
+    noPriceEl.hidden = !(n > 0 && priced < n);
     const showFab = n > 0 || cards.length > 0;
     fab.classList.toggle('visible', showFab);
     if (n) {
@@ -319,7 +362,7 @@
 
   /* ---------- Действия ---------- */
   function addItem(info, qty) {
-    state.items.push({ id: info.id, name: info.name, unit: info.unit, qty: clamp(qty) });
+    state.items.push({ id: info.id, name: info.name, unit: info.unit, qty: clamp(qty), price: info.price });
     save(); renderAll();
     fab.classList.remove('bump'); void fab.offsetWidth; fab.classList.add('bump');
     say('Добавлено в корзину');
@@ -331,7 +374,7 @@
   }
   drawer.querySelector('.cd-clear').addEventListener('click', () => {
     if (!state.items.length) return;
-    if (confirm('Очистить всю корзину?')) { state.items = []; save(); renderAll(); }
+    if (confirm(window.OLZHA_I18N ? window.OLZHA_I18N.t('Очистить всю корзину?') : 'Очистить всю корзину?')) { state.items = []; save(); renderAll(); }
   });
   note.addEventListener('input', () => { state.note = note.value; save(); updateSend(); });
 
@@ -346,7 +389,14 @@
       const t = spec ? spec.textContent.replace(/\u00a0/g, ' ').trim() : '';
       if (t && !/^цена/i.test(t)) name += ', ' + lowerFirst(t);
     }
-    return { id: page + '|' + name, name: name, unit: el.dataset.unit || 'шт' };
+    let price = null;
+    const pe = el.querySelector('.price');
+    if (pe) {
+      const small = pe.querySelector('small');
+      const digits = pe.textContent.replace(/\D/g, '');
+      if (digits && !(small && /т\.л\./.test(small.textContent))) price = parseInt(digits, 10);
+    }
+    return { id: page + '|' + name, name: name, unit: el.dataset.unit || 'шт', price: price };
   }
 
   function setupCards() {
@@ -373,6 +423,8 @@
       const wa = body.querySelector('.wa-btn');
       body.insertBefore(row, wa || null);
       cards.push(card);
+      const saved = find(info.id);
+      if (saved && saved.price !== info.price) { saved.price = info.price; save(); }
     });
   }
 
