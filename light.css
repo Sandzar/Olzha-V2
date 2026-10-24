@@ -1,0 +1,154 @@
+/* =====================================================================
+   СВЕТЛАЯ СОВРЕМЕННАЯ ТЕМА
+   Подключается на всех страницах после основных стилей и переопределяет тёмные цвета.
+   Цвета можно менять в блоке :root ниже.
+   ===================================================================== */
+
+:root {
+  --ink: #16181d;            /* основной текст и тёмные кнопки */
+  --accent: #f26a1b;         /* фирменный оранжевый */
+  --accent-text: #cf4f06;    /* оранжевый для текста на белом (читается лучше) */
+  --accent-soft: #fff1e6;    /* нежный оранжевый фон */
+  --muted: #5d6472;          /* второстепенный текст */
+  --line: rgba(22, 24, 29, .09);
+  --paper: #ffffff;
+  --concrete-1: #f6f7f9;
+  --concrete-2: #eef0f4;
+  --shadow: 0 1px 2px rgba(22, 24, 29, .05), 0 12px 32px rgba(22, 24, 29, .07);
+  --shadow-hover: 0 2px 4px rgba(22, 24, 29, .06), 0 24px 50px rgba(22, 24, 29, .13);
+}
+
+/* ---------- Фон страницы: чистый светлый с мягкими цветными пятнами ---------- */
+body {
+  background:
+    radial-gradient(900px 520px at 92% -8%, rgba(242, 106, 27, .13), transparent 62%),
+    radial-gradient(760px 560px at -8% 22%, rgba(70, 110, 255, .09), transparent 62%),
+    #f6f7f9;
+  color: var(--ink);
+}
+.lead { opacity: 1; color: #454b57; }
+
+/* ---------- Меню ---------- */
+.navbar {
+  background: rgba(255, 255, 255, .82);
+  -webkit-backdrop-filter: saturate(1.4) blur(16px);
+  backdrop-filter: saturate(1.4) blur(16px);
+  box-shadow: 0 0 0 1px var(--line), 0 10px 34px rgba(22, 24, 29, .10);
+}
+.tagline { color: var(--muted); opacity: 1; }
+.nav-links a, .nav-links .dd-toggle { color: var(--ink); opacity: 1; }
+.nav-links > li > a:hover, .nav-links .dd-toggle:hover,
+.nav-links a:focus-visible, .nav-links .dd-toggle:focus-visible { color: var(--accent-text); }
+.dd-menu { background: #fff; box-shadow: 0 0 0 1px var(--line), 0 24px 60px rgba(22, 24, 29, .16); }
+.dd-menu a:hover { background: var(--accent-soft); color: var(--ink); }
+.dd-menu a.is-soon { opacity: .55; }
+.dd-menu a.is-soon:hover { opacity: 1; }
+.burger { color: var(--ink); }
+.mobile-menu { background: #fff; box-shadow: 0 0 0 1px var(--line), 0 24px 60px rgba(22, 24, 29, .16); }
+.mobile-menu a, .mobile-menu .dd-toggle { color: var(--ink); }
+.m-sub a { color: var(--accent-text); }
+.m-sub a.is-soon { color: var(--muted); opacity: 1; }
+
+/* ---------- Кнопки ---------- */
+.btn-accent { box-shadow: 0 10px 24px rgba(242, 106, 27, .32); }
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-line { box-shadow: inset 0 0 0 2px rgba(22, 24, 29, .85); }
+
+/* ---------- Цветные секции: светлые ---------- */
+.band-hero { background: none; }
+.band-dark  { background: #ffffff; color: var(--ink); }
+.band-sand  { background: #fff4ea; color: var(--ink); }
+.band-steel {
+  background:
+    linear-gradient(rgba(31, 59, 92, .06) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(31, 59, 92, .06) 1px, transparent 1px) 0 0 / 40px 40px,
+    #eaf1fb;
+  color: var(--ink);
+}
+.band-accent { background: #f1f3f7; color: var(--ink); }
+.band-accent .lead { opacity: 1; }
+.band-black { background: #ffffff; color: var(--ink); }
+
+/* ---------- Информационная плашка в шапке ---------- */
+.sign { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.sign .tape { height: 6px; background: var(--accent); }
+.status { background: #f1f3f7; }
+.sign small { color: var(--muted); opacity: 1; }
+.sign .big { color: var(--accent-text); }
+.delivery .tape, .cta-end .tape { display: none; }
+
+/* ---------- Карточки разделов (главная) ---------- */
+.card {
+  background: #fff; color: var(--ink); border: 1px solid var(--line);
+  box-shadow: var(--shadow); border-radius: 24px;
+}
+.card::before, .product::before { display: none; }
+.thumb { background: linear-gradient(135deg, #eef1f6, #e3e8ef); color: #8a92a1; }
+.card:hover { background: #fff; color: var(--ink); box-shadow: var(--shadow-hover); border-color: rgba(242, 106, 27, .45); }
+.card .thumb .tag.soon { background: rgba(255, 255, 255, .94); color: var(--muted); box-shadow: 0 0 0 1px var(--line); }
+
+/* ---------- Карточки товаров ---------- */
+.product {
+  background: #fff; color: var(--ink); border: 1px solid var(--line);
+  box-shadow: var(--shadow); border-radius: 24px;
+  transition: box-shadow .25s, transform .25s;
+}
+.product:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.product .thumb { background: linear-gradient(135deg, #f4f6f9, #e9edf3); border-bottom: 1px solid var(--line); }
+.product .thumb span { color: #8a92a1; }
+.price { color: var(--accent-text); }
+.price small { color: var(--muted); opacity: 1; }
+.spec, .desc { opacity: 1; color: var(--muted); }
+.tags span { box-shadow: inset 0 0 0 1px rgba(22, 24, 29, .16); color: var(--ink); }
+.wa-btn { box-shadow: 0 8px 20px rgba(242, 106, 27, .28); }
+.wa-btn:hover { background: var(--ink); color: #fff; }
+
+/* ---------- Список проката ---------- */
+.rent {
+  background: #fff; color: var(--ink); border: 1px solid var(--line);
+  border-left: 6px solid var(--accent); box-shadow: var(--shadow);
+}
+
+/* ---------- Поиск, фильтры, сортировка ---------- */
+.chip { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.chip:hover { background: var(--accent-soft); }
+.chip.active { background: var(--accent); color: var(--ink); box-shadow: none; }
+.search, .sort { box-shadow: 0 0 0 1px var(--line), 0 4px 14px rgba(22, 24, 29, .05); }
+.note, .count { opacity: 1; color: var(--muted); }
+.group-title small { color: var(--muted); opacity: 1; }
+.empty { color: var(--ink); }
+.empty a { color: var(--accent-text); }
+
+/* ---------- Вопросы и шаги ---------- */
+.faq-item { background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.faq-item p { opacity: 1; color: #454b57; }
+.faq-item summary::after { color: var(--accent-text); }
+.step { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.step p { opacity: 1; color: #454b57; }
+
+/* ---------- Доставка и финальный блок ---------- */
+.delivery { background: linear-gradient(135deg, #ff8a3d, #f26a1b); box-shadow: 0 18px 40px rgba(242, 106, 27, .28); }
+.cta-end { background: linear-gradient(135deg, #ff8a3d, #f26a1b); color: var(--ink); box-shadow: 0 24px 60px rgba(242, 106, 27, .3); }
+.cta-end h2::after { background: var(--ink); }
+
+/* ---------- Контакты ---------- */
+.panel { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--accent); box-shadow: var(--shadow); }
+.links a { background: #f1f3f7; color: var(--ink); }
+.links a:hover { background: var(--accent); color: var(--ink); }
+
+/* ---------- Отзывы ---------- */
+.review { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.review p { opacity: 1; color: #454b57; }
+.source { background: #f1f3f7; color: var(--muted); }
+.stars { color: #f5a300; }
+
+/* ---------- Фото магазина ---------- */
+.slides { background: #e9edf2; }
+.slide { color: #8a92a1; }
+.photo-frame::before { background: linear-gradient(135deg, #ffe2cc, #ffc59d); }
+
+/* ---------- Подвал ---------- */
+footer { border-top: 1px solid var(--line); }
+footer span { opacity: 1; color: var(--muted); }
+footer a { opacity: 1; color: var(--muted); }
+footer a:hover { color: var(--accent-text); }
