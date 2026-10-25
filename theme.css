@@ -207,3 +207,32 @@ footer a:hover { color: var(--accent); }
 /* встроенная иконка WhatsApp в кнопке «WhatsApp» (блок «Контакты») */
 .ico.wa-builtin { background: #25d366; box-shadow: none; color: #fff; }
 .ico.wa-builtin svg { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); }
+
+/* ---------- Логотип в меню крупнее ---------- */
+.navbar { height: 72px; padding: 0 14px 0 10px; }
+.brand-icon { width: 54px; height: 54px; border-radius: 15px; }
+.logo { height: 42px; padding: 0 20px; font-size: 21px; }
+.band-hero { margin-top: -96px; padding-top: 96px !important; }
+@media (max-width: 860px) {
+  .navbar { height: 66px; }
+  .brand-icon { width: 48px; height: 48px; border-radius: 13px; }
+  .logo { height: 38px; padding: 0 16px; font-size: 19px; }
+  .band-hero { margin-top: -82px; padding-top: 82px !important; }
+}
+@media (max-width: 520px) {
+  .brand { gap: 7px; }
+  .brand-icon { width: 44px; height: 44px; }
+  .logo { padding: 0 13px; font-size: 18px; }
+}
+
+/* ---------- Кнопки «Добавить» и «В корзину», счётчики: всегда читаются на белых карточках ---------- */
+.rent .rent-add, .product .cart-add { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+.rent .rent-add:hover, .product .cart-add:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--navy); }
+.rent .rent-add.in-cart, .product .cart-add.in-cart { background: var(--navy); color: #fff; border-color: var(--navy); }
+.rent .qty, .product .qty { box-shadow: inset 0 0 0 2px rgba(11, 36, 71, .2); }
+.rent .qty button, .product .qty button { background: rgba(11, 36, 71, .08); color: var(--navy); }
+.rent .qty button:hover, .product .qty button:hover { background: var(--accent); color: var(--navy); }
+.rent .qty input, .product .qty input, .rent .q-unit, .product .q-unit { color: var(--navy); }
+.lang { background: rgba(11, 36, 71, .07); }
+.lang button { color: var(--navy); }
+.lang button[aria-pressed="true"] { background: var(--accent); color: var(--navy); }
