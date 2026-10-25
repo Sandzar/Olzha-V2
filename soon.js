@@ -135,8 +135,8 @@
     lastFocus = document.activeElement;
     titleName.textContent = name;
     waEl.textContent = 'Спросить про «' + name + '» в WhatsApp';
-    waEl.href = 'https://wa.me/' + WA + '?text=' +
-      encodeURIComponent('Здравствуйте! Интересует раздел «' + name + '». Подскажите, пожалуйста, что есть в наличии.');
+    const ru = 'Здравствуйте! Интересует раздел «' + name + '». Подскажите, пожалуйста, что есть в наличии.';
+    waEl.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(window.OLZHA_I18N ? window.OLZHA_I18N.message(ru) : ru);
     listEl.textContent = '';
     Object.keys(PAGES).forEach(n => {
       const a = document.createElement('a');
