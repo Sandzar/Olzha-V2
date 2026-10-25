@@ -73,4 +73,24 @@
     a.insertBefore(slot, a.firstChild);
     a.classList.add('has-ico');
   });
+
+  /* ---------- Сообщения в WhatsApp на языке клиента (русский текст остаётся для магазина) ---------- */
+  function refreshWaLinks() {
+    const I = window.OLZHA_I18N;
+    if (!I) return;
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
+      if (a.id === 'cdSend' || a.id === 'rtSend') return;      // эти кнопки собирают текст сами (корзина, заявка)
+      let ru = a.getAttribute('data-wa-ru');
+      if (ru === null) {
+        const href = a.getAttribute('href') || '';
+        const m = /[?&]text=([^&]*)/.exec(href);
+        ru = m ? decodeURIComponent(m[1]) : '';
+        a.setAttribute('data-wa-ru', ru);
+        a.setAttribute('data-wa-base', href.split('?')[0]);
+      }
+      if (!ru) return;
+      a.setAttribute('href', a.getAttribute('data-wa-base') + '?text=' + encodeURIComponent(I.message(ru)));
+    });
+  }
+  document.addEventListener('olzha:lang', refreshWaLinks);
 })();
