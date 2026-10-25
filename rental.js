@@ -70,9 +70,9 @@
   const css = `
   [hidden] { display: none !important; }
   .qty { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px;
-         box-shadow: inset 0 0 0 2px var(--qb, rgba(255,255,255,.3)); flex-shrink: 0; }
+         box-shadow: inset 0 0 0 2px var(--qb, rgba(22,24,29,.2)); flex-shrink: 0; }
   .qty button { width: 30px; height: 30px; border-radius: 50%; border: 0; cursor: pointer;
-         background: var(--qbg, rgba(255,255,255,.14)); color: inherit; font: 700 18px/1 var(--body, sans-serif); padding: 0; }
+         background: var(--qbg, rgba(22,24,29,.07)); color: inherit; font: 700 18px/1 var(--body, sans-serif); padding: 0; }
   .qty button:hover { background: var(--accent, #f26a1b); color: var(--ink, #141414); }
   .qty input { width: 44px; text-align: center; background: transparent; border: 0; color: inherit; padding: 0;
          font: 700 14px var(--body, sans-serif); -moz-appearance: textfield; appearance: textfield; }
@@ -80,11 +80,11 @@
   .qty input:focus { outline: none; }
   .qty .q-unit { font: 600 11px var(--body, sans-serif); opacity: .7; margin: 0 8px 0 2px; }
 
-  .rent-add { flex: 1; min-width: 0; cursor: pointer; padding: 11px 10px; border-radius: 999px; background: transparent; color: #fff;
-         border: 2px solid rgba(255,255,255,.35); font: 700 13px/1.2 var(--body, sans-serif);
+  .rent-add { flex: 1; min-width: 0; cursor: pointer; padding: 11px 10px; border-radius: 999px; background: transparent; color: var(--ink, #16181d);
+         border: 2px solid rgba(22,24,29,.22); font: 700 13px/1.2 var(--body, sans-serif);
          transition: background .2s, color .2s, border-color .2s; }
-  .rent-add:hover { border-color: var(--accent, #f26a1b); color: var(--accent, #f26a1b); }
-  .rent-add.in-cart { background: #fff; color: var(--ink, #141414); border-color: #fff; }
+  .rent-add:hover { border-color: var(--accent, #f26a1b); color: var(--accent-text, #cf4f06); }
+  .rent-add.in-cart { background: var(--ink, #16181d); color: #fff; border-color: var(--ink, #16181d); }
 
   .cart-fab { position: fixed; right: 18px; bottom: 18px; z-index: 80; display: inline-flex; align-items: center; gap: 10px;
          padding: 12px 18px 12px 16px; border-radius: 999px; cursor: pointer;
@@ -297,21 +297,27 @@
   const total = () => state.items.reduce((s, it) => s + lineSum(it), 0);
 
   function buildMessage() {
+    const I = window.OLZHA_I18N;
+    const line = s => (I ? I.line(s) : s);
+    const block = s => (I ? I.block(s) : s);
+    const label = s => (I ? I.label(s) : s);
     const f = state.form;
-    const out = ['Здравствуйте! Хочу арендовать инструмент.', ''];
-    if (f.name.trim()) out.push('Имя: ' + f.name.trim());
-    if (f.date) out.push('Когда нужен: ' + niceDate(f.date));
+    const out = [block('Здравствуйте! Хочу арендовать инструмент.'), ''];
+    if (f.name.trim()) out.push(label('Имя:') + ' ' + f.name.trim());
+    if (f.date) out.push(label('Когда нужен:') + ' ' + niceDate(f.date));
     if (f.receive === 'delivery') {
-      out.push('Получение: нужна доставка' + (f.address.trim() ? ', адрес: ' + f.address.trim() : ''));
+      out.push(line('Получение: нужна доставка') + (f.address.trim() ? ', ' + label('адрес:') + ' ' + f.address.trim() : ''));
     } else {
-      out.push('Получение: заберу в магазине');
+      out.push(line('Получение: заберу в магазине'));
     }
-    out.push('', 'Список:');
+    out.push('', label('Список:'));
     state.items.forEach((it, n) => {
-      out.push((n + 1) + '. ' + it.name + ' — ' + it.qty + ' шт, ' + it.days + ' сут.');
+      out.push((n + 1) + '. ' + line(it.name) + ' — ' + it.qty + ' ' + line('шт') + ', ' + it.days + ' ' + line('сут.'));
     });
-    if (f.note.trim()) out.push('', 'Комментарий: ' + f.note.trim());
-    out.push('', 'Подскажите, пожалуйста, свободен ли инструмент на эти даты и какие условия проката. Спасибо!');
+    if (f.note.trim()) out.push('', label('Комментарий:') + ' ' + f.note.trim());
+    out.push('', block('Подскажите, пожалуйста, свободен ли инструмент на эти даты и какие условия проката. Спасибо!'));
+    const cl = I ? I.clientLangRu() : '';
+    if (cl) out.push('', 'Язык клиента: ' + cl);
     return out.join('\n');
   }
 
@@ -410,7 +416,7 @@
   }
   $('.cd-clear').addEventListener('click', () => {
     if (!state.items.length) return;
-    if (confirm('Очистить всю заявку?')) { state.items = []; save(); renderAll(); }
+    if (confirm(window.OLZHA_I18N ? window.OLZHA_I18N.t('Очистить всю заявку?') : 'Очистить всю заявку?')) { state.items = []; save(); renderAll(); }
   });
 
   // Поля формы
@@ -462,17 +468,19 @@
     function apply() {
       const q = input.value.trim().toLowerCase();
       const mode = sortSel.value;
+      const loc = document.documentElement.lang || 'ru';
+      const label = el => { const h = el.querySelector('h3'); return h ? h.textContent : el.dataset.name; };
       const sorted = all.slice().sort((a, b) => {
         const pa = +a.dataset.price, pb = +b.dataset.price;
-        const na = a.dataset.name, nb = b.dataset.name;
-        if (mode === 'cheap') return pa - pb || na.localeCompare(nb, 'ru');
-        if (mode === 'pricey') return pb - pa || na.localeCompare(nb, 'ru');
-        return na.localeCompare(nb, 'ru');
+        const na = label(a), nb = label(b);
+        if (mode === 'cheap') return pa - pb || na.localeCompare(nb, loc);
+        if (mode === 'pricey') return pb - pa || na.localeCompare(nb, loc);
+        return na.localeCompare(nb, loc);
       });
       let shown = 0;
       sorted.forEach(el => {
         const p = +el.dataset.price;
-        const ok = p >= min && p <= max && (!q || el.dataset.name.toLowerCase().includes(q));
+        const ok = p >= min && p <= max && (!q || (el.dataset.name + ' ' + label(el)).toLowerCase().includes(q));
         el.style.display = ok ? '' : 'none';
         if (ok) shown++;
         list.appendChild(el);
@@ -488,6 +496,7 @@
     }));
     input.addEventListener('input', apply);
     sortSel.addEventListener('change', apply);
+    document.addEventListener('olzha:lang', apply);
     apply();
   }
 
@@ -518,6 +527,7 @@
     renderForm();
     renderAll();
     window.addEventListener('storage', e => { if (e.key === KEY) { load(); renderForm(); renderAll(); } });
+    document.addEventListener('olzha:lang', updateTotals);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
