@@ -180,7 +180,7 @@
   .lang button:hover { background: rgba(22,24,29,.08); }
   .lang button[aria-pressed="true"] { background: var(--accent, #f26a1b); color: var(--ink, #141414); }
   .lang button:focus-visible { outline: 3px solid var(--accent, #f26a1b); outline-offset: 2px; }
-  @media (max-width: 520px) { .lang button { padding: 7px 8px; font-size: 11px; } .logo { padding: 0 14px !important; } }
+  @media (max-width: 520px) { .lang button { padding: 7px 8px; font-size: 11px; } }
   `;
   const st = document.createElement('style');
   st.textContent = css;
@@ -191,7 +191,38 @@
     if (b) setLang(b.getAttribute('data-lang'));
   });
 
-  window.OLZHA_I18N = { t: ru => tr(ru, lang), lang: () => lang, set: setLang };
+  /* Сообщения в WhatsApp:
+       русский   -> только по-русски
+       казахский -> только по-казахски
+       английский -> русский текст (для магазина) и перевод в скобках (для клиента) + строка «Язык клиента» */
+  function pair(ru, sep) {
+    if (lang === 'ru') return ru;
+    const t = tr(ru, lang);
+    if (lang === 'kk') return t || ru;
+    return t && t !== ru ? ru + sep + '(' + t + ')' : ru;
+  }
+  // подпись поля: казахский «Түсініктеме:», английский «Комментарий / Comment:»
+  function label(ru) {
+    if (lang === 'ru') return ru;
+    const t = tr(ru, lang);
+    if (!t || t === ru) return ru;
+    if (lang === 'kk') return t;
+    return ru.replace(/:\s*$/, '') + ' / ' + t;
+  }
+  const clientLangRu = () => (lang === 'en' ? 'английский' : '');
+  function message(ru) {
+    const cl = clientLangRu();
+    return pair(ru, '\n') + (cl ? '\n\nЯзык клиента: ' + cl : '');
+  }
+
+  window.OLZHA_I18N = {
+    t: ru => tr(ru, lang), lang: () => lang, set: setLang,
+    label: label,                     // «Комментарий / Comment:» (en) или «Түсініктеме:» (kk)
+    line: ru => pair(ru, ' '),        // название в одну строку
+    block: ru => pair(ru, '\n'),      // предложение (en: русский + перевод в скобках)
+    message: message,                 // готовое сообщение (+ «Язык клиента: английский» только для en)
+    clientLangRu: clientLangRu
+  };
 
   function init() {
     document.documentElement.lang = lang;
@@ -206,6 +237,7 @@
     }
     updateButtons();
     unveil();
+    document.dispatchEvent(new CustomEvent('olzha:lang', { detail: { lang: lang } }));
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
