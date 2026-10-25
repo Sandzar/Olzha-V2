@@ -260,11 +260,17 @@
 
   /* ---------- Текст сообщения для WhatsApp ---------- */
   function buildMessage() {
-    const lines = state.items.map((it, n) => (n + 1) + '. ' + it.name + ' — ' + it.qty + ' ' + it.unit);
-    let text = 'Здравствуйте! Хочу уточнить наличие и цену на товары из корзины:\n\n' + lines.join('\n') + '\n';
+    const I = window.OLZHA_I18N;
+    const line = s => (I ? I.line(s) : s);
+    const block = s => (I ? I.block(s) : s);
+    const label = s => (I ? I.label(s) : s);
+    const lines = state.items.map((it, n) => (n + 1) + '. ' + line(it.name) + ' — ' + it.qty + ' ' + line(it.unit));
+    let text = block('Здравствуйте! Хочу уточнить наличие и цену на товары из корзины:') + '\n\n' + lines.join('\n') + '\n';
     const n = state.note.trim();
-    if (n) text += '\nКомментарий: ' + n + '\n';
-    text += '\nПодскажите, пожалуйста, что есть в наличии, итоговую цену и условия доставки. Спасибо!';
+    if (n) text += '\n' + label('Комментарий:') + ' ' + n + '\n';
+    text += '\n' + block('Подскажите, пожалуйста, что есть в наличии, итоговую цену и условия доставки. Спасибо!');
+    const cl = I ? I.clientLangRu() : '';
+    if (cl) text += '\n\nЯзык клиента: ' + cl;
     return text;
   }
 
@@ -449,6 +455,7 @@
     renderAll();
     // Если корзину изменили в другой вкладке, обновляем здесь
     window.addEventListener('storage', e => { if (e.key === STORAGE_KEY) { load(); renderAll(); } });
+    document.addEventListener('olzha:lang', updateSend);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
