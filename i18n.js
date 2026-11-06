@@ -8,6 +8,28 @@
    - Сообщения, которые уходят в WhatsApp, остаются на русском, чтобы сотрудники магазина
      всегда их понимали
    ===================================================================== */
+/* ---------- Картинки: если .jpg нет, пробуем .png и .webp, потом запасные имена (data-imgs), и только потом прячем ---------- */
+window.__imgFail = function (img) {
+  try {
+    let st = img.__st;
+    if (!st) {
+      const src = img.getAttribute('src') || '';
+      const m = /^(.*\/)?([^\/]+)\.(jpe?g|png|webp|gif|svg)$/i.exec(src);
+      if (!m) { img.remove(); return; }
+      const dir = m[1] || '';
+      const exts = (img.getAttribute('data-exts') || 'jpg,png,jpeg,webp,svg').split(',').map(x => x.trim()).filter(Boolean);
+      const bases = [m[2]].concat((img.getAttribute('data-imgs') || '').split('|').filter(Boolean));
+      const q = [];
+      bases.forEach(b => exts.forEach(e => {
+        const u = dir + (b === m[2] ? b : encodeURIComponent(b)) + '.' + e;
+        if (u.toLowerCase() !== src.toLowerCase()) q.push(u);
+      }));
+      st = img.__st = { q: q, i: 0 };
+    }
+    if (st.i < st.q.length) img.src = st.q[st.i++]; else img.remove();
+  } catch (e) { img.remove(); }
+};
+
 (function () {
   'use strict';
 
