@@ -407,6 +407,7 @@
 
   function setupCards() {
     document.querySelectorAll('.product').forEach(el => {
+      if (el.hasAttribute('data-nocart')) return;
       const body = el.querySelector('.p-body');
       if (!body || el.querySelector('.cart-row')) return;
       const info = productInfo(el);
