@@ -14,7 +14,8 @@
     'Еврокубы и разные емкости': 'eurocubes.html',
     'Прокат инструментов': 'arenda.html',
     'Металлы': 'metal.html',
-    'Сухие смеси': 'sukhie-smesi.html'
+    'Сухие смеси': 'sukhie-smesi.html',
+    'Сантехника, водоснабжение и отопление': 'santehnika.html'
   };
   const WA = CFG.whatsapp || '77754479913';
   const isReady = name => Object.prototype.hasOwnProperty.call(PAGES, name);
