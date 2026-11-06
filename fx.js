@@ -2,8 +2,14 @@
    Анимации сайта «Олжа» (подключается на всех страницах)
    - В тёмно-синей шапке: башенный кран с грузом, малярный валик, который красит полосу,
      молоток, гаечный ключ и каска (двигаются сами и чуть следуют за мышью и прокруткой)
-   - Строительный УРОВЕНЬ между секциями: когда вы доходите до границы, он «выравнивается»,
-     а пузырёк в колбе успокаивается посередине
+   - Между секциями три места под ВАШИ картинки (слева, по центру, справа): при прокрутке они
+     красиво выезжают и чуть покачиваются. Положите файлы в папку images/divider/ :
+        left.png    слева (например, инструменты)
+        center.png  по центру (например, уровень или линейка)
+        right.png   справа (например, лопата и молоток)
+     Подойдут png, webp, svg или jpg (лучше png с прозрачным фоном). Если у вас хочется разные картинки
+     на разных стыках, назовите их left-1.png, center-1.png, right-1.png (первый стык), left-2.png ... и так далее.
+     Нет картинки: место остаётся пустым и ничего не видно.
    - На всех светлых блоках плавают инструменты (кисть, мастерок, рулетка, отвёртка, молоток...),
      они сдвигаются при прокрутке с разной скоростью
    - Иконки в карточках «Время работы / Контакты / Адрес» двигаются (часы, телефон, метка)
@@ -32,26 +38,26 @@
   .band-hero, .band-dark, .band-black, .band-steel, .band-sand { overflow: hidden; overflow: clip; }
   .band > .wrap { position: relative; z-index: 1; }
 
-  /* УРОВЕНЬ-разделитель между секциями */
-  .fx-leveldiv { position: relative; height: 0; z-index: 6; pointer-events: none; }
-  .fx-lv { position: absolute; left: 50%; top: 0; width: min(440px, 78vw); height: 44px; margin-left: calc(min(440px, 78vw) / -2); margin-top: -22px;
-         border-radius: 16px; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 0 16px;
-         background: linear-gradient(#ffa05a, #ff7a1a 55%, #e8650a);
-         box-shadow: 0 14px 30px rgba(11, 36, 71, .25), inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -2px 0 rgba(0, 0, 0, .12);
-         transform: rotate(-3.5deg); transition: transform 1.9s cubic-bezier(.3, 1.7, .5, 1); }
-  .fx-leveldiv.in .fx-lv { transform: none; }
-  .lv-screw { flex: 0 0 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #c9ced6 60%, #8a93a3); box-shadow: 0 0 0 1px rgba(11, 36, 71, .3); }
-  .lv-vial { position: relative; flex: 1; max-width: 250px; height: 22px; border-radius: 12px;
-         background: linear-gradient(#a9bb5e, #eaf8a4 45%, #b9cc6e); box-shadow: inset 0 2px 4px rgba(0, 0, 0, .38), 0 0 0 2px rgba(255, 255, 255, .35); }
-  .lv-vial::before, .lv-vial::after { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(11, 36, 71, .55); }
-  .lv-vial::before { left: calc(50% - 22px); }
-  .lv-vial::after { left: calc(50% + 20px); }
-  .lv-bub { position: absolute; top: 2px; bottom: 2px; width: 38px; margin-left: -19px; left: 6%; border-radius: 50%;
-         background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.97), rgba(255,255,255,.62) 55%, rgba(255,255,255,.34));
-         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .6); }
-  .fx-leveldiv.in .lv-bub { animation: fxSettle 2.8s cubic-bezier(.3, .8, .4, 1) forwards, fxSway 4.2s ease-in-out 2.8s infinite alternate; }
-  @keyframes fxSettle { 0% { left: 6%; } 18% { left: 92%; } 38% { left: 20%; } 56% { left: 76%; } 72% { left: 36%; } 86% { left: 58%; } 100% { left: 50%; } }
-  @keyframes fxSway { from { transform: translateX(-4px); } to { transform: translateX(4px); } }
+  /* картинки между секциями (слева, по центру, справа), их кладёте вы в images/divider/ */
+  .fx-divider { position: relative; height: 0; z-index: 6; pointer-events: none; }
+  .dv-row { position: absolute; left: 50%; top: 0; width: min(1200px, calc(100vw - 48px)); transform: translate(-50%, -50%);
+         display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; }
+  .dv { margin: 0; display: flex; opacity: 0; visibility: hidden;
+         transition: opacity .9s ease, transform 1.25s cubic-bezier(.2, .85, .3, 1.25); }
+  .dv-left { justify-self: start; transform: translateX(-100px) rotate(-12deg); }
+  .dv-center { justify-self: center; transform: translateY(-46px) scale(.7); transition-delay: .18s; }
+  .dv-right { justify-self: end; transform: translateX(100px) rotate(12deg); transition-delay: .36s; }
+  .dv.ok { visibility: visible; }
+  .fx-divider.in .dv.ok { opacity: 1; transform: none; }
+  .dv img { display: block; width: auto; height: auto; max-height: 150px; max-width: 28vw;
+         filter: drop-shadow(0 14px 18px rgba(11, 36, 71, .22)); animation: dvSway 6.2s ease-in-out infinite alternate; }
+  .dv-center img { max-height: 124px; max-width: min(440px, 44vw); animation-duration: 7.6s; animation-direction: alternate-reverse; }
+  @keyframes dvSway { from { transform: translateY(-5px) rotate(-1.6deg); } to { transform: translateY(5px) rotate(1.6deg); } }
+  @media (max-width: 700px) {
+    .dv-row { width: calc(100vw - 32px); gap: 8px; }
+    .dv img { max-height: 84px; }
+    .dv-center img { max-height: 72px; }
+  }
 
   /* инструменты, которые плавают на светлых блоках */
   .fx-deco { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
@@ -175,8 +181,9 @@
     .fx-brick { opacity: 1; animation: none !important; }
     .fx-blueprint path, .fx-blueprint circle { stroke-dashoffset: 0; animation: none !important; }
     .fx-blueprint text { opacity: 1; transition: none; }
-    .fx-lv { transform: none; transition: none; }
-    .lv-bub { left: 50%; animation: none !important; }
+    .dv { transition: none; }
+    .dv.ok { opacity: 1; transform: none; }
+    .dv img { animation: none; }
     .fx-d svg, .pn-ico svg, .pn-ico .mn, .pn-ico .hr, .btn-accent { animation: none !important; }
     .fx-ready .review:not(.pop) .stars i { opacity: 1; transform: none; }
     .fx-ready .reveal.in { animation: none; }
@@ -323,20 +330,27 @@
     });
   }
 
-  /* ---------- Уровень между секциями ---------- */
-  function setupLevels() {
+  /* ---------- Картинки между секциями ---------- */
+  function setupDividers() {
     const io = new IntersectionObserver((es, o) => es.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); }
     }), { rootMargin: '0px 0px -22% 0px' });
+    let n = 0;
     document.querySelectorAll('main > .band').forEach(band => {
       if (band.classList.contains('band-hero') || band.classList.contains('band-black')) return;
       const prev = band.previousElementSibling;
-      if (!prev || prev.classList.contains('fx-marquee-wrap') || prev.classList.contains('fx-leveldiv')) return;
+      if (!prev || prev.classList.contains('fx-marquee-wrap') || prev.classList.contains('fx-divider')) return;
+      n++;
       const div = document.createElement('div');
-      div.className = 'fx-leveldiv';
+      div.className = 'fx-divider';
       div.setAttribute('aria-hidden', 'true');
-      div.innerHTML = '<div class="fx-lv"><i class="lv-screw"></i><div class="lv-vial"><i class="lv-bub"></i></div><i class="lv-screw"></i></div>';
+      div.innerHTML = '<div class="dv-row">' + ['left', 'center', 'right'].map(pos =>
+        '<figure class="dv dv-' + pos + '"><img alt="" src="images/divider/' + pos + '-' + n + '.png" data-imgs="' + pos + '"></figure>').join('') + '</div>';
       band.parentNode.insertBefore(div, band);
+      div.querySelectorAll('img').forEach(im => {
+        im.addEventListener('load', () => { if (im.naturalWidth > 0) im.parentNode.classList.add('ok'); });
+        im.addEventListener('error', () => { if (window.__imgFail) window.__imgFail(im); });
+      });
       io.observe(div);
     });
   }
@@ -489,20 +503,63 @@
     });
   }
 
+  /* ---------- Лента партнёров: плавно едет влево ---------- */
+  function setupPartners() {
+    const track = document.getElementById('partnersTrack');
+    if (!track) return;
+    const box = track.parentNode;
+    const slots = Array.from(track.querySelectorAll('.partner'));
+    // место «закончило загрузку», когда логотип показан или все варианты имени файла перебраны и картинка убрана
+    const settled = p => p.classList.contains('ok') || !p.querySelector('img');
+    let waited = 0;
+
+    function finish() {
+      // показываем только те места, где есть логотип (пустые заглушки убираем)
+      const ok = slots.filter(p => p.classList.contains('ok'));
+      if (ok.length) slots.forEach(p => { if (!ok.includes(p)) p.remove(); });
+      const set = Array.from(track.querySelectorAll('.partner'));
+      if (set.length && !reduce) {
+        const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        const first = set[0].offsetLeft;
+        const last = set[set.length - 1];
+        const shift = last.offsetLeft + last.offsetWidth + gap - first;   // ширина одного круга
+        if (shift > 0) {
+          const clone = () => set.forEach(p => {
+            const c = p.cloneNode(true);
+            c.setAttribute('aria-hidden', 'true');
+            const im = c.querySelector('img');
+            if (im) { im.removeAttribute('onerror'); im.removeAttribute('onload'); im.removeAttribute('loading'); }
+            track.appendChild(c);
+          });
+          let total = 1;
+          while (shift * total < innerWidth * 2 + shift && total < 10) { clone(); total++; }
+          clone();                                                         // ещё один круг, чтобы не было шва
+          track.style.setProperty('--shift', shift + 'px');
+          track.style.setProperty('--dur', Math.max(20, shift / 45).toFixed(1) + 's');   // ~45 пикселей в секунду
+          track.classList.add('run');
+        }
+      }
+      box.classList.add('ready');                                          // и только теперь плавно показываем ленту
+    }
+
+    function check() {
+      if (slots.every(settled) || waited >= 9000) { finish(); return; }
+      waited += 250;
+      setTimeout(check, 250);
+    }
+    if (document.readyState === 'complete') check(); else window.addEventListener('load', check);
+  }
+
   /* ---------- Запуск ---------- */
   function init() {
     document.documentElement.classList.add('fx-ready');
-    buildHeroLayer();
-    if (!reduce) splitHeadline();
-    buildDecos();
-    setupParallax();
-    setupLevels();
-    buildWall();
-    buildBlueprint();
-    decoratePanels();
-    setupStars();
-    staggerGrids();
-    setupTilt();
+    const steps = [
+      buildHeroLayer,
+      () => { if (!reduce) splitHeadline(); },
+      buildDecos, setupParallax, setupDividers, buildWall, buildBlueprint,
+      decoratePanels, setupStars, staggerGrids, setupTilt, setupPartners
+    ];
+    steps.forEach(fn => { try { fn(); } catch (e) { if (window.console) console.error('fx:', e); } });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
